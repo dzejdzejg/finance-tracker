@@ -21,11 +21,43 @@
       </div>
     </header>
 
-    <div class="modal" hidden>
-      <button class="modal__overlay" aria-label="Close settings"></button>
-      <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="settings-title">
-        <h2 id="settings-title" class="modal__title">Settings</h2>
-        <button class="modal__close" type="button" aria-label="Close settings"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="modal__overlay" type="button" aria-label="Close settings"></div>
+
+      <div class="modal__dialog">
+        <div class="modal__header">
+          <h2 id="settings-title" class="modal__title">Settings</h2>
+          <button class="modal__close" type="button" aria-label="Close settings">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal__content">
+          <ul class="modal__list">
+            <li class="modal__list-item">
+              <span class="modal__setting-label">Toggle theme</span>
+              <input type="checkbox" class="modal__setting-input" id="toggle-theme" />
+              <label for="toggle-theme" class="modal__setting-switch"></label>
+            </li>
+
+            <li class="modal__list-item">
+              <span class="modal__setting-label">Toggle animations</span>
+              <input type="checkbox" class="modal__setting-input" id="toggle-animations" />
+              <label for="toggle-animations" class="modal__setting-switch"></label>
+            </li>
+            <li class="modal__list-item">
+              <span class="modal__setting-label">Export JSON data</span>
+              <button class="modal__setting-download" type="button">
+                <i class="modal__setting-download-icon fa-solid fa-arrow-up-from-bracket"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal__demo">
+          <p class="modal__demo-title">This website provides rigid data to show interface. If you want to start using Finance Tracker on your own click below</p>
+          <button class="modal__demo-btn" type="button">Click here to reset data</button>
+        </div>
       </div>
     </div>
 

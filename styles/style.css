@@ -4,11 +4,13 @@
 @import url('./charts.css');
 @import url('./crypto.css');
 @import url('./history.css');
+@import url('./modal.css');
 @import url('./responsive.css');
 
 body {
   background-color: lightgray;
   font-family: 'Nunito', sans-serif;
+  position: relative;
 }
 
 .container {
