@@ -1,4 +1,4 @@
-import { settingsBtn, modal, modalOverlay, closeBtn, sidebarLinks, views } from './dom.js';
+import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views } from './dom.js';
 
 function openSettings() {
   modal?.classList.add('is-shown');
@@ -10,7 +10,7 @@ function closeSettings() {
 
 settingsBtn?.addEventListener('click', openSettings);
 
-sidebarLinks.forEach((link) => {
+navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     const target = link.dataset.go;
 
@@ -19,7 +19,7 @@ sidebarLinks.forEach((link) => {
       return;
     }
 
-    sidebarLinks.forEach((l) => l.removeAttribute('aria-current'));
+    navLinks.forEach((l) => l.removeAttribute('aria-current'));
     link.setAttribute('aria-current', 'page');
 
     views.forEach((view) => {

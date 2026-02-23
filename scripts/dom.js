@@ -6,5 +6,5 @@ export const modal = document.querySelector('.modal');
 export const modalOverlay = document.querySelector('.modal__overlay');
 export const closeBtn = document.querySelector('.modal__close');
 
-export const sidebarLinks = document.querySelectorAll('.sidebar__link');
+export const navLinks = document.querySelectorAll('[data-go]');
 export const views = document.querySelectorAll('.view')

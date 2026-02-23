@@ -1,0 +1,42 @@
+.mobile-nav {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.mobile-nav__link {
+  flex: 1 1 0;
+  min-height: 48px;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mobile-nav__label {
+  font-size: 0.75rem;
+}
+
+.mobile-nav__link[aria-current='page'] {
+  background: rgba(99, 102, 241, 0.14);
+}
+
+.mobile-nav__link .fa-solid {
+  padding-top: 7px;
+}
+.content {
+  padding-bottom: 74px;
+}

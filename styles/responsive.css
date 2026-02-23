@@ -1,5 +1,4 @@
 .sidebar,
-.views[hidden],
 .operations__form-title,
 .operations__card--balance,
 .dashboard__title,
@@ -110,6 +109,14 @@
     gap: 24px;
     align-items: start;
     padding: 16px 20px;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .content {
+    padding-bottom: 0;
   }
 
   .sidebar {
