@@ -1,0 +1,227 @@
+.history {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history__main {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.history__header {
+  display: grid;
+  grid-template-columns: 1fr 58px 74px;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.history__title {
+  grid-column: 1/-1;
+  grid-row: 1;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.history__sort {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.history__sort:active {
+  transform: scale(0.96);
+}
+
+.history__sort:hover {
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+.history__time {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  opacity: 0.7;
+}
+
+.history__price {
+  grid-column: 3;
+  grid-row: 2;
+  margin-left: 0;
+  justify-self: end;
+  opacity: 0.7;
+}
+
+/* === LIST === */
+.history__list {
+  margin: 0;
+  padding: 12px 0 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history__transaction {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 58px 74px;
+  align-items: center;
+  padding: 8px 0 12px;
+  gap: 8px;
+  border-bottom: 2px solid lightgray;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.history__transaction:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 10px;
+}
+
+.history__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history__date {
+  justify-self: start;
+}
+
+.history__amount {
+  justify-self: end;
+  letter-spacing: -0.5px;
+}
+
+.history__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.history__amount--income {
+  color: rgb(10, 163, 10);
+}
+
+.history__amount--expenses {
+  color: red;
+}
+
+/* === REMINDER === */
+.history__aside {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.history__reminder-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.history__reminder-form {
+  display: flex;
+  gap: 6px;
+}
+
+.history__input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  flex: 1;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  background-color: #fff;
+  color: #111827;
+}
+
+.history__input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+.history__add {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.history__add:active {
+  transform: scale(0.96);
+}
+
+.history__add:hover {
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+.history__reminders {
+  margin: 0;
+  padding: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.history__reminder-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+}
+
+.history__reminder-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+  font-size: 0.9rem;
+}
+
+.history__reminder-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.1rem;
+  font-weight: 700;
+}

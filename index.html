@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Tracker - monitor your daily expanses!</title>
+    <link rel="icon" href="images/logo-32x-32.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <img src="images/logo-100x100.png" alt="Finance Tracker logo" class="topbar__logo" />
+        <p class="topbar__name">Finance Tracker</p>
+      </div>
+      <div class="topbar__right">
+        <button class="topbar__theme" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <button class="topbar__settings" aria-label="Open settings"><i class="fa-solid fa-gear"></i></button>
+      </div>
+    </header>
+
+    <div class="modal" hidden>
+      <button class="modal__overlay" aria-label="Close settings"></button>
+      <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <h2 id="settings-title" class="modal__title">Settings</h2>
+        <button class="modal__close" type="button" aria-label="Close settings"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <p class="sidebar__title">Menu</p>
+        <nav class="sidebar__nav" aria-label="Main navigation">
+          <ul class="sidebar__list">
+            <li class="sidebar__list-item">
+              <button class="sidebar__link" type="button" data-go="dashboard">Home</button>
+            </li>
+            <li class="sidebar__list-item">
+              <button class="sidebar__link" type="button" data-go="transactions" aria-current="page">Transactions</button>
+            </li>
+            <li class="sidebar__list-item">
+              <button class="sidebar__link" type="button" data-go="analytics">Analytics</button>
+            </li>
+            <li class="sidebar__list-item">
+              <button class="sidebar__link" type="button" data-go="budgets">Budgets</button>
+            </li>
+            <li class="sidebar__list-item">
+              <button class="sidebar__link" type="button" data-go="settings">Settings</button>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar__crypto">
+          <p class="sidebar__crypto-title">Crypto News</p>
+          <div class="sidebar__crypto-header">
+            <span class="sidebar__coin-header">Coin</span>
+            <span class="sidebar__price-header">Price</span>
+            <span class="sidebar__change-header">24h %</span>
+          </div>
+
+          <div class="sidebar__crypto-content">
+            <ul class="sidebar__crypto-list">
+              <li class="sidebar__crypto-list-item">
+                <div class="sidebar__crypto-coin">
+                  <img src="https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400" alt="" class="sidebar__crypto-img" />
+                  <span class="sidebar__crypto-symbol">BTC</span>
+                </div>
+
+                <span class="sidebar__crypto-price">$68232.34</span>
+                <div class="sidebar__crypto-change">
+                  <span class="sidebar__crypto-amount">2.4</span>
+                  <span class="sidebar__crypto-icon">
+                    <i class="sidebar__crypto-icon--up fa-solid fa-caret-up"></i>
+                  </span>
+                </div>
+              </li>
+              <li class="sidebar__crypto-list-item">
+                <div class="sidebar__crypto-coin">
+                  <img src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628" alt="" class="sidebar__crypto-img" />
+                  <span class="sidebar__crypto-symbol">ETH</span>
+                </div>
+
+                <span class="sidebar__crypto-price">$3232.34</span>
+                <div class="sidebar__crypto-change">
+                  <span class="sidebar__crypto-amount">1.8</span>
+                  <span class="sidebar__crypto-icon">
+                    <i class="sidebar__crypto-icon--down fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+              </li>
+              <li class="sidebar__crypto-list-item">
+                <div class="sidebar__crypto-coin">
+                  <img src="https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756" alt="" class="sidebar__crypto-img" />
+                  <span class="sidebar__crypto-symbol">SOL</span>
+                </div>
+
+                <span class="sidebar__crypto-price">$83.2</span>
+                <div class="sidebar__crypto-change">
+                  <span class="sidebar__crypto-amount">3.8</span>
+                  <span class="sidebar__crypto-icon">
+                    <i class="sidebar__crypto-icon--down fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+              </li>
+              <li class="sidebar__crypto-list-item">
+                <div class="sidebar__crypto-coin">
+                  <img src="https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442" alt="" class="sidebar__crypto-img" />
+                  <span class="sidebar__crypto-symbol">XRP</span>
+                </div>
+
+                <span class="sidebar__crypto-price">$1.39</span>
+                <div class="sidebar__crypto-change">
+                  <span class="sidebar__crypto-amount">4.4</span>
+                  <span class="sidebar__crypto-icon">
+                    <i class="sidebar__crypto-icon--up fa-solid fa-caret-up"></i>
+                  </span>
+                </div>
+              </li>
+              <li class="sidebar__crypto-list-item">
+                <div class="sidebar__crypto-coin">
+                  <img src="https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970" alt="" class="sidebar__crypto-img" />
+                  <span class="sidebar__crypto-symbol">BNB</span>
+                </div>
+
+                <span class="sidebar__crypto-price">$614.52</span>
+                <div class="sidebar__crypto-change">
+                  <span class="sidebar__crypto-amount">2.6</span>
+                  <span class="sidebar__crypto-icon">
+                    <i class="sidebar__crypto-icon--down fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="sidebar__newsletter">
+          <p class="sidebar__subscribe">Subscribe to our Newsletter</p>
+          <input type="text" class="sidebar__input" placeholder="Email" />
+          <button class="sidebar__btn">Subscribe</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="container">
+          <div class="views">
+            <section class="view view--dashboard" data-view="dashboard">
+              <p class="dashboard__title">Finance Tracker</p>
+
+              <section class="operations">
+                <div class="operations__card operations__card--income">
+                  <p class="operations__title">Income</p>
+                  <span class="operations__amount">$ 3,200.00</span>
+                  <div class="operations__trend operations__trend--up">
+                    <span><i class="fa-solid fa-arrow-trend-up"></i></span>
+                    <p>3200.00</p>
+                  </div>
+                </div>
+
+                <div class="operations__card operations__card--expenses">
+                  <p class="operations__title">Expenses</p>
+                  <span class="operations__amount">$ 1,845.00</span>
+                  <div class="operations__trend operations__trend--down">
+                    <span><i class="fa-solid fa-arrow-trend-down"></i></span>
+                    <p>1845.00</p>
+                  </div>
+                </div>
+
+                <div class="operations__card operations__card--balance">
+                  <p class="operations__title">Balance</p>
+                  <span class="operations__amount">$ 1355.00</span>
+                  <div class="operations__trend operations__trend--up">
+                    <span><i class="fa-solid fa-arrow-trend-up"></i></span>
+                    <p>1355.00</p>
+                  </div>
+                </div>
+
+                <div class="operations__forms">
+                  <form class="operations__form operations__form--income">
+                    <p class="operations__form-title">Income</p>
+                    <label class="sr-only" for="income-description">Income description</label>
+                    <input type="text" name="description" class="operations__input-description" id="income-description" placeholder="Description (optional)" />
+
+                    <label class="sr-only" for="income-amount">Income amount</label>
+                    <input type="number" name="amount" class="operations__input-amount" id="income-amount" placeholder="e.g. 500, 1000, 1500... ($)" inputmode="decimal" min="0" step="0.01" required />
+
+                    <input type="date" name="date" class="operations__input-date" id="income-date" />
+                    <button class="operations__btn" type="submit">Add</button>
+                  </form>
+
+                  <form class="operations__form operations__form--expenses">
+                    <p class="operations__form-title">Expenses</p>
+
+                    <label class="sr-only" for="expenses-description">Expenses description</label>
+                    <input type="text" name="description" class="operations__input-description" id="expenses-description" placeholder="Description (optional)" />
+
+                    <label class="sr-only" for="expense-amount">Expense amount</label>
+                    <input type="number" name="amount" class="operations__input-amount" id="expense-amount" placeholder="e.g. 78.45... ($)" inputmode="decimal" min="0" step="0.01" required />
+
+                    <label class="sr-only" for="expense-category">Category</label>
+                    <select name="category" class="operations__select" id="expense-category" required>
+                      <option value="" disabled selected>Category</option>
+                      <option value="Food">Food</option>
+                      <option value="Travel">Travel</option>
+                      <option value="Shopping">Shopping</option>
+                      <option value="Bills">Bills</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Others">Others</option>
+                    </select>
+
+                    <input type="date" name="date" class="operations__input-date" id="expense-date" />
+
+                    <button class="operations__btn" type="submit">Add</button>
+                  </form>
+                </div>
+              </section>
+
+              <section class="charts">
+                <div class="charts__card charts__card--category">
+                  <p class="charts__title">Expenses by Category</p>
+                  <canvas class="charts__canvas" id="chart-category"></canvas>
+                </div>
+
+                <div class="charts__card charts__card--time">
+                  <p class="charts__title">Spending Over Time</p>
+                  <canvas class="charts__canvas" id="chart-time"></canvas>
+                </div>
+              </section>
+
+              <section class="crypto">
+                <p class="crypto__title">Crypto</p>
+                <div class="crypto__header">
+                  <span class="crypto__coin-header">Coin</span>
+                  <span class="crypto__symbol-header">Symbol</span>
+                  <span class="crypto__price-header">Price</span>
+                  <span class="crypto__change-header">24h %</span>
+                </div>
+                <div class="crypto__content">
+                  <ul class="crypto__list">
+                    <li class="crypto__list-item">
+                      <div class="crypto__box">
+                        <img src="https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400" alt="" class="crypto__img" />
+                        <span class="crypto__coin-item">Bitcoin</span>
+                      </div>
+                      <span class="crypto__symbol-item">BTC</span>
+                      <span class="crypto__price-item">$68232.34</span>
+                      <div class="crypto__change-item">
+                        <span class="crypto__change-amount">2.4</span>
+                        <span class="crypto__change-icon">
+                          <i class="crypto__change-icon--up fa-solid fa-caret-up"></i>
+                        </span>
+                      </div>
+                    </li>
+                    <li class="crypto__list-item">
+                      <div class="crypto__box">
+                        <img src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628" alt="" class="crypto__img" />
+                        <span class="crypto__coin-item">Ethereum</span>
+                      </div>
+                      <span class="crypto__symbol-item">ETH</span>
+                      <span class="crypto__price-item">$2411.23</span>
+                      <div class="crypto__change-item">
+                        <span class="crypto__change-amount">-0.4</span>
+                        <span class="crypto__change-icon">
+                          <i class="crypto__change-icon--down fa-solid fa-caret-down"></i>
+                        </span>
+                      </div>
+                    </li>
+                    <li class="crypto__list-item">
+                      <div class="crypto__box">
+                        <img src="https://coin-images.coingecko.com/coins/images/325/large/Tether.png?1696501661" alt="" class="crypto__img" />
+                        <span class="crypto__coin-item">Tether</span>
+                      </div>
+                      <span class="crypto__symbol-item">USDT</span>
+                      <span class="crypto__price-item">$411.23</span>
+                      <div class="crypto__change-item">
+                        <span class="crypto__change-amount">-3.4</span>
+                        <span class="crypto__change-icon">
+                          <i class="crypto__change-icon--down fa-solid fa-caret-down"></i>
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="history">
+                <div class="history__main">
+                  <div class="history__header">
+                    <p class="history__title">History</p>
+                    <button class="history__sort" aria-label="Sort transactions"><i class="fa-solid fa-sort"></i>Sort</button>
+                    <p class="history__time">Date</p>
+                    <p class="history__price">Amount</p>
+                  </div>
+                  <ul class="history__list">
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="fa-solid fa-house-circle-check"></i></span>
+                      <span class="history__name">Bills</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-cart-shopping"></i></span>
+                      <span class="history__name">Food</span>
+                      <span class="history__description-note">Bought milk and eggs</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-cart-shopping"></i></span>
+                      <span class="history__name">Food</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--expenses">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="fa-solid fa-tags"></i></span>
+                      <span class="history__name">Shopping</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-cart-shopping"></i></span>
+                      <span class="history__name">Food</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-house"></i></span>
+                      <span class="history__name">Bills</span>
+                      <span class="history__description-note">Paid for water and electricity</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--expenses">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="fa-solid fa-location-arrow"></i></span>
+                      <span class="history__name">Travel</span>
+                      <span class="history__description-note">Bought plane tickets to Madrid</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-house-circle-check"></i></span>
+                      <span class="history__name">Bills</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-tags"></i></span>
+                      <span class="history__name">Shopping</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--expenses">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-house-circle-check"></i></span>
+                      <span class="history__name">Bills</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-gamepad"></i></span>
+                      <span class="history__name">Entertainment</span>
+                      <span class="history__description-note">2 tickets to theatre</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-ellipsis"></i></span>
+                      <span class="history__name">Others</span>
+                      <span class="history__description-note">Bought medicaments</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                    <li class="history__transaction">
+                      <span class="history__icon"><i class="history__icon fa-solid fa-gamepad"></i></span>
+                      <span class="history__name">Entertainment</span>
+                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
+                      <span class="history__amount history__amount--income">$78.45</span>
+                    </li>
+                  </ul>
+                  <p class="history__empty" hidden>No transactions yet.</p>
+                </div>
+                <div class="history__aside">
+                  <p class="history__reminder-title">Add a reminder</p>
+                  <div class="history__reminder-form"><input type="text" class="history__input" placeholder="Remember about..." /> <button class="history__add">Add</button></div>
+                  <ul class="history__reminders">
+                    <li class="history__reminder-item">
+                      <span class="history__reminder-icon">
+                        <i class="fa-regular fa-lightbulb"></i>
+                      </span>
+                      <span class="history__reminder-text">Amazon Prime renews this month</span>
+                    </li>
+                    <li class="history__reminder-item">
+                      <span class="history__reminder-icon">
+                        <i class="fa-regular fa-lightbulb"></i>
+                      </span>
+                      <span class="history__reminder-text">Netflix due in 3 days</span>
+                    </li>
+                    <li class="history__reminder-item">
+                      <span class="history__reminder-icon">
+                        <i class="fa-regular fa-lightbulb"></i>
+                      </span>
+                      <span class="history__reminder-text">iCloud storage renewal next week</span>
+                    </li>
+                    <li class="history__reminder-item">
+                      <span class="history__reminder-icon">
+                        <i class="fa-regular fa-lightbulb"></i>
+                      </span>
+                      <span class="history__reminder-text">Credit card payment due 18th</span>
+                    </li>
+                    <li class="history__reminder-item">
+                      <span class="history__reminder-icon">
+                        <i class="fa-regular fa-lightbulb"></i>
+                      </span>
+                      <span class="history__reminder-text">Fuel budget check this week</span>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </section>
+
+            <section class="view view--transactions" data-view="transactions" hidden>
+              <div class="transactions__header">
+                <h2 class="transactions__title">Transactions</h2>
+              </div>
+
+              <div class="transactions__filters">
+                <input type="search" class="transactions__search" placeholder="Search transactions..." />
+
+                <select class="transactions__filter transactions__filter--type">
+                  <option value="all">All</option>
+                  <option value="income">Income</option>
+                  <option value="expenses">Expenses</option>
+                </select>
+
+                <select class="transactions__filter transactions__filter--category">
+                  <option value="all">All</option>
+                  <!-- dynamic categories-->
+                </select>
+
+                <input type="date" class="transactions__filter transactions__filter--from" />
+                <input type="date" class="transactions__filter transactions__filter--to" />
+              </div>
+
+              <ul class="transactions__list">
+                <li class="transactions__item">
+                  <span class="transactions__icon"><i class="fa-solid fa-cart-shopping"></i></span>
+
+                  <div class="transactions__info">
+                    <span class="transactions__name">Groceries</span>
+                    <time class="transactions__date" datetime="2026-02-07">Feb 7</time>
+                  </div>
+
+                  <span class="transactions__amount transactions__amount--expense">$78.45</span>
+
+                  <div class="transactions__actions">
+                    <button class="transactions__edit" aria-label="Edit transaction">
+                      <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button class="transactions__delete" aria-label="Delete transaction">
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+
+              <p class="transactions__empty" hidden>No transactions found.</p>
+            </section>
+
+            <section class="view view--analytics" data-view="analytics" hidden>
+              <div class="analytics__header">
+                <h2 class="analytics__title">Analytics</h2>
+              </div>
+
+              <div class="analytics__filters">
+                <select class="analytics__range">
+                  <option value="7">Last 7 days</option>
+                  <option value="30">Last 30 days</option>
+                  <option value="90">Last 90 days</option>
+                  <option value="365">Last year</option>
+                </select>
+
+                <select class="analytics__category">
+                  <option value="all">All categories</option>
+                </select>
+              </div>
+
+              <!-- Charts grid -->
+              <div class="analytics__grid">
+                <div class="analytics__card">
+                  <h3 class="analytics__card-title">Expenses by Category</h3>
+                  <canvas id="analytics-category"></canvas>
+                </div>
+
+                <!-- Cashflow -->
+                <div class="analytics__card">
+                  <h3 class="analytics__card-title">Cashflow Over Time</h3>
+                  <canvas id="analytics-cashflow"></canvas>
+                </div>
+
+                <!-- Balance trend -->
+                <div class="analytics__card">
+                  <h3 class="analytics__card-title">Balance Growth</h3>
+                  <canvas id="analytics-balance"></canvas>
+                </div>
+              </div>
+            </section>
+
+            <section class="view view--budgets" data-view="budgets" hidden>
+              <div class="budgets__header">
+                <h2 class="budgets__title">Budgets</h2>
+
+                <button class="budgets__add"><i class="fa-solid fa-plus"></i>Add Budget</button>
+              </div>
+
+              <ul class="budgets__list">
+                <li class="budgets__item">
+                  <div class="budgets__info">
+                    <span class="budgets__category">Food</span>
+                    <span class="budgets__limit">$300 / month</span>
+                  </div>
+
+                  <!-- progress -->
+                  <div class="budgets__progress">
+                    <div class="budgets__progress-bar" style="width: 65%"></div>
+                  </div>
+
+                  <span class="budgets__spent">$195 spent</span>
+                </li>
+              </ul>
+
+              <p class="budgets__empty" hidden>No budgets yet.</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
+    <script src="scripts/index.js" type="module"></script>
+  </body>
+</html>

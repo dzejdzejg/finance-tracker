@@ -1,0 +1,43 @@
+.charts {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.charts__card {
+  height: 340px;
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  flex: 1 1 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.charts__title {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 6px 0 10px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.charts__canvas {
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.charts__card--time {
+  display: none;
+}

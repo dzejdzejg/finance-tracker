@@ -1,0 +1,408 @@
+.sidebar,
+.views[hidden],
+.operations__form-title,
+.operations__card--balance,
+.dashboard__title,
+.history__description-note,
+.crypto__symbol-header,
+.crypto__symbol-item,
+.sidebar__crypto {
+  display: none;
+}
+
+/* >= 600: */
+@media (min-width: 600px) {
+  .topbar__logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .topbar__name {
+    font-size: 1.3rem;
+  }
+
+  .operations__card {
+    padding: 22px;
+  }
+}
+
+/* >= 768: */
+@media (min-width: 768px) {
+  .content .container {
+    padding: 15px 30px;
+  }
+
+  .topbar__logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .topbar__name {
+    font-size: 1.3rem;
+  }
+
+  .topbar__theme,
+  .topbar__settings {
+    width: 44px;
+    height: 44px;
+  }
+
+  .charts__card {
+    flex: 1 1 0;
+  }
+
+  .charts__card--time {
+    display: block;
+  }
+
+  .history {
+    padding: 0;
+  }
+
+  .history__transaction {
+    grid-template-columns: 28px minmax(0, 1fr) 58px 74px;
+    grid-template-rows: auto auto;
+  }
+
+  .history__description-note {
+    display: block;
+    grid-column: 2/3;
+    grid-row: 2;
+    min-width: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #6b7280;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .crypto__symbol-header,
+  .crypto__symbol-item {
+    display: block;
+  }
+
+  .crypto__header,
+  .crypto__list-item {
+    grid-template-columns: minmax(0, 1fr) 100px 140px 80px;
+  }
+
+  .crypto__symbol-header,
+  .crypto__symbol-item {
+    justify-self: center;
+  }
+
+  .crypto__symbol-item {
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.12);
+    color: #4f46e5;
+  }
+}
+
+/* >= 1024 */
+@media (min-width: 1024px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding: 16px 20px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: calc(100vh - 104px);
+    padding: 16px;
+    position: sticky;
+    top: 64px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    overflow: visible;
+  }
+
+  .sidebar__title {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #111827;
+  }
+
+  .sidebar__nav {
+    width: 100%;
+    position: relative;
+    padding: 8px 0 8px 18px;
+    overflow: hidden;
+  }
+
+  .sidebar__nav::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 3px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.3);
+  }
+
+  .sidebar__newsletter {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .sidebar__subscribe {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .sidebar__input {
+    width: 100%;
+    display: block;
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    outline: none;
+    background-color: #fff;
+    color: #111827;
+  }
+
+  .sidebar__input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+  }
+
+  .sidebar__btn {
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    cursor: pointer;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .sidebar__btn:active {
+    transform: scale(0.96);
+  }
+
+  .sidebar__btn:hover {
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+  }
+
+  .sidebar__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .sidebar__link {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font: inherit;
+    font-weight: 700;
+    text-align: left;
+    color: #111827;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      transform 0.05s ease;
+  }
+
+  .sidebar__link:hover {
+    background: white;
+  }
+
+  .sidebar__link:active {
+    transform: scale(0.98);
+  }
+
+  .sidebar__link[aria-current='page'] {
+    background: rgba(99, 102, 241, 0.18);
+    border-bottom: 2px solid rgba(99, 102, 241, 0.35);
+    outline: 2px solid rgba(99, 102, 241, 0.35);
+    position: relative;
+  }
+
+  .sidebar__link[aria-current='page']::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: -999px;
+    height: calc(999px + 50%);
+    width: 3px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.75);
+  }
+
+  .dashboard__title {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 10px;
+  }
+
+  .content .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .topbar__logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .topbar__name {
+    font-size: 1.4rem;
+  }
+
+  .topbar__theme,
+  .topbar__settings {
+    width: 48px;
+    height: 48px;
+  }
+
+  .operations {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .operations__form-title {
+    display: inline;
+  }
+
+  .operations__forms {
+    display: grid;
+    grid-column: 1 / 4;
+    grid-row: 2;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .operations__card--income {
+    grid-column: 1;
+    grid-row: 1;
+    order: 0;
+  }
+  .operations__card--expenses {
+    grid-column: 2;
+    grid-row: 1;
+    order: 0;
+  }
+  .operations__card--balance {
+    grid-column: 3;
+    grid-row: 1;
+    order: 0;
+    display: grid;
+  }
+
+  .operations__card--income,
+  .operations__card--expenses,
+  .operations__card--balance,
+  .operations__form--income,
+  .operations__form--expenses {
+    order: 0;
+  }
+
+  .history {
+    display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    gap: 16px;
+  }
+
+  .history__main,
+  .history__aside {
+    min-width: 0;
+  }
+
+  .history__aside {
+    position: sticky;
+    top: 64px;
+    height: fit-content;
+  }
+
+  .crypto {
+    display: none;
+  }
+}
+
+/* Crypto news starts from 1280px */
+@media (min-width: 1280px) {
+  .sidebar {
+    height: auto;
+  }
+
+  .sidebar__crypto {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) and (orientation: landscape) {
+  .layout {
+    grid-template-columns: 240px 1fr;
+  }
+
+  .sidebar {
+    width: 240px;
+  }
+
+  .sidebar__crypto-list-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sidebar__crypto-coin {
+    grid-column: 1/-1;
+    grid-row: 1;
+  }
+
+  .sidebar__crypto-price {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .sidebar__crypto-change {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+}
+
+/* >= 1440 */
+@media (min-width: 1440px) {
+  .layout {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .sidebar {
+    width: 280px;
+  }
+}

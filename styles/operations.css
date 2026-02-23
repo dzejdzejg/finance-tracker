@@ -1,0 +1,233 @@
+.operations {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.operations__card {
+  min-width: 0;
+  display: grid;
+  grid-template-areas:
+    'title trend'
+    'amount amount';
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto;
+  align-content: start;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.operations__forms {
+  display: contents;
+}
+
+.operations__card--income {
+  order: 1;
+}
+
+.operations__form--income {
+  order: 2;
+}
+
+.operations__card--expenses {
+  order: 3;
+}
+
+.operations__form--expenses {
+  order: 4;
+}
+
+.operations__title {
+  grid-area: title;
+  padding-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.operations__amount {
+  grid-area: amount;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+.operations__trend--up,
+.operations__trend--down {
+  grid-area: trend;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.operations__trend--up {
+  color: rgb(17, 210, 17);
+  border: 1px solid rgb(139, 236, 139);
+  background: rgba(195, 249, 209, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.operations__trend .fa-arrow-trend-up {
+  color: rgb(17, 210, 17);
+  font-size: 0.9rem;
+}
+
+.operations__trend--down {
+  color: red;
+  border: 1px solid rgb(216, 172, 169);
+  background: rgba(249, 204, 195, 0.3);
+}
+
+.operations__trend .fa-arrow-trend-down {
+  color: red;
+  font-size: 0.9rem;
+}
+
+/* === FORMS === */
+.operations__form {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(0.1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+.operations__input-description,
+.operations__input-amount,
+.operations__input-date,
+.operations__select {
+  width: 100%;
+  display: block;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  line-height: 1.2;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  background-color: #fff;
+  color: #111827;
+  -webkit-text-fill-color: #111827;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.operations__input-date {
+  padding-right: 40px;
+  cursor: pointer;
+}
+.operations__input-description:focus,
+.operations__input-amount:focus,
+.operations__input-date:focus,
+.operations__select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+.operations__btn {
+  min-height: 44px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.operations__btn:active {
+  transform: scale(0.96);
+}
+
+.operations__btn:hover {
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+/* === INCOME === */
+.operations__form--income {
+  grid-template-columns: 1fr 1fr;
+}
+
+.operations__form--income .operations__input-description {
+  grid-column: 1/-1;
+}
+
+.operations__form--income .operations__input-amount[name='amount'] {
+  grid-column: 1 / -1;
+}
+
+.operations__form--income .operations__input[name='date'] {
+  grid-column: 1 / 2;
+}
+
+.operations__form--income .operations__btn {
+  grid-column: 2 / 3;
+}
+
+/* === EXPENSES === */
+.operations__form--expenses {
+  grid-template-columns: 1fr 1fr;
+}
+
+.operations__form--expenses .operations__input-description {
+  grid-column: 1 / -1;
+}
+
+.operations__form--expenses .operations__input[name='amount'] {
+  grid-column: 1 / 2;
+}
+
+.operations__form--expenses .operations__select[name='category'] {
+  grid-column: 2 / 3;
+  width: 100%;
+}
+
+.operations__form--expenses .operations__input[name='date'] {
+  grid-column: 1 / 2;
+}
+
+.operations__form--expenses .operations__btn {
+  grid-column: 2 / 3;
+  width: 100%;
+}
+
+/* === BALANCE === */
+.operations__card--balance {
+  grid-template-areas:
+    'title trend'
+    'amount amount';
+  grid-template-rows: auto auto;
+  align-content: start;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
