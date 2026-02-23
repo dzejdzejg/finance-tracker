@@ -1,19 +1,39 @@
-import { settingsBtn, modal, modalOverlay, closeBtn } from './dom.js';
+import { settingsBtn, modal, modalOverlay, closeBtn, sidebarLinks, views } from './dom.js';
 
-settingsBtn?.addEventListener('click', () => {
-  modal?.classList.toggle('is-shown');
-});
+function openSettings() {
+  modal?.classList.add('is-shown');
+}
 
-closeBtn?.addEventListener('click', () => {
+function closeSettings() {
   modal?.classList.remove('is-shown');
+}
+
+settingsBtn?.addEventListener('click', openSettings);
+
+sidebarLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    const target = link.dataset.go;
+
+    if (target === 'settings') {
+      openSettings();
+      return;
+    }
+
+    sidebarLinks.forEach((l) => l.removeAttribute('aria-current'));
+    link.setAttribute('aria-current', 'page');
+
+    views.forEach((view) => {
+      const isTarget = view.dataset.view === target;
+      view.hidden = !isTarget;
+    });
+  });
 });
 
-modalOverlay?.addEventListener('click', () => {
-  modal?.classList.remove('is-shown');
-});
+closeBtn?.addEventListener('click', closeSettings);
+modalOverlay?.addEventListener('click', closeSettings);
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modal?.classList.contains('is-shown')) {
-    modal.classList.remove('is-shown');
+    closeSettings();
   }
 });
