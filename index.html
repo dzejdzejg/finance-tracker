@@ -56,7 +56,7 @@
 
         <div class="modal__demo">
           <p class="modal__demo-title">This website provides rigid data to show interface. If you want to start using Finance Tracker on your own click below</p>
-          <button class="modal__demo-btn" type="button">Click here to reset data</button>
+          <button class="modal__demo-btn" type="button">Start with empty data</button>
         </div>
       </div>
     </div>
@@ -214,9 +214,23 @@
                     <input type="text" name="description" class="operations__input-description" id="income-description" placeholder="Description (optional)" />
 
                     <label class="sr-only" for="income-amount">Income amount</label>
-                    <input type="number" name="amount" class="operations__input-amount" id="income-amount" placeholder="e.g. 500, 1000, 1500... ($)" inputmode="decimal" min="0" step="0.01" required />
+                    <input type="number" name="amount" class="operations__input-amount" id="income-amount" placeholder="e.g. 500, 1000... ($)" inputmode="decimal" min="0" step="0.01" required />
+
+                    <label class="sr-only" for="income-category">Category</label>
+                    <select name="category" class="operations__select" id="income-category" required>
+                      <option value="" disabled selected>Category</option>
+                      <option value="Salary">Salary</option>
+                      <option value="Bonus">Bonus</option>
+                      <option value="Bank Interest">Bank Interest</option>
+                      <option value="Overtime">Overtime</option>
+                      <option value="Scholarship">Scholarship</option>
+                      <option value="Gift">Gift</option>
+                      <option value="Refund">Refund</option>
+                      <option value="Others">Others</option>
+                    </select>
 
                     <input type="date" name="date" class="operations__input-date" id="income-date" />
+
                     <button class="operations__btn" type="submit">Add</button>
                   </form>
 
@@ -291,7 +305,7 @@
                       <span class="crypto__symbol-item">ETH</span>
                       <span class="crypto__price-item">$2411.23</span>
                       <div class="crypto__change-item">
-                        <span class="crypto__change-amount">-0.4</span>
+                        <span class="crypto__change-amount">0.4</span>
                         <span class="crypto__change-icon">
                           <i class="crypto__change-icon--down fa-solid fa-caret-down"></i>
                         </span>
@@ -305,7 +319,7 @@
                       <span class="crypto__symbol-item">USDT</span>
                       <span class="crypto__price-item">$411.23</span>
                       <div class="crypto__change-item">
-                        <span class="crypto__change-amount">-3.4</span>
+                        <span class="crypto__change-amount">3.4</span>
                         <span class="crypto__change-icon">
                           <i class="crypto__change-icon--down fa-solid fa-caret-down"></i>
                         </span>
@@ -323,91 +337,12 @@
                     <p class="history__time">Date</p>
                     <p class="history__price">Amount</p>
                   </div>
-                  <ul class="history__list">
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="fa-solid fa-house-circle-check"></i></span>
-                      <span class="history__name">Bills</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-cart-shopping"></i></span>
-                      <span class="history__name">Food</span>
-                      <span class="history__description-note">Bought milk and eggs</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-cart-shopping"></i></span>
-                      <span class="history__name">Food</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--expenses">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="fa-solid fa-tags"></i></span>
-                      <span class="history__name">Shopping</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-cart-shopping"></i></span>
-                      <span class="history__name">Food</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-house"></i></span>
-                      <span class="history__name">Bills</span>
-                      <span class="history__description-note">Paid for water and electricity</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--expenses">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="fa-solid fa-location-arrow"></i></span>
-                      <span class="history__name">Travel</span>
-                      <span class="history__description-note">Bought plane tickets to Madrid</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-house-circle-check"></i></span>
-                      <span class="history__name">Bills</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-tags"></i></span>
-                      <span class="history__name">Shopping</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--expenses">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-house-circle-check"></i></span>
-                      <span class="history__name">Bills</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-gamepad"></i></span>
-                      <span class="history__name">Entertainment</span>
-                      <span class="history__description-note">2 tickets to theatre</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-ellipsis"></i></span>
-                      <span class="history__name">Others</span>
-                      <span class="history__description-note">Bought medicaments</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                    <li class="history__transaction">
-                      <span class="history__icon"><i class="history__icon fa-solid fa-gamepad"></i></span>
-                      <span class="history__name">Entertainment</span>
-                      <time class="history__date" datetime="2026-02-07">Feb 7</time>
-                      <span class="history__amount history__amount--income">$78.45</span>
-                    </li>
-                  </ul>
+                  <ul class="history__list"></ul>
+
+                  <div class="history__footer">
+                    <button class="history__see-all" type="button" data-go="transactions">View all transactions</button>
+                  </div>
+
                   <p class="history__empty" hidden>No transactions yet.</p>
                 </div>
                 <div class="history__aside">
@@ -472,27 +407,7 @@
                 <input type="date" class="transactions__filter transactions__filter--to" />
               </div>
 
-              <ul class="transactions__list">
-                <li class="transactions__item">
-                  <span class="transactions__icon"><i class="fa-solid fa-cart-shopping"></i></span>
-
-                  <div class="transactions__info">
-                    <span class="transactions__name">Groceries</span>
-                    <time class="transactions__date" datetime="2026-02-07">Feb 7</time>
-                  </div>
-
-                  <span class="transactions__amount transactions__amount--expense">$78.45</span>
-
-                  <div class="transactions__actions">
-                    <button class="transactions__edit" aria-label="Edit transaction">
-                      <i class="fa-solid fa-pen"></i>
-                    </button>
-                    <button class="transactions__delete" aria-label="Delete transaction">
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
-                  </div>
-                </li>
-              </ul>
+              <ul class="transactions__list"></ul>
 
               <p class="transactions__empty" hidden>No transactions found.</p>
             </section>

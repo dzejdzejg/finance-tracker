@@ -23,6 +23,8 @@
 
 .transactions__search,
 .transactions__filter {
+  min-width: 0;
+  width: 100%;
   min-height: 42px;
   padding: 8px 12px;
   border-radius: 10px;
@@ -154,12 +156,24 @@
 
 @media (min-width: 768px) {
   .transactions__filters {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
     align-items: center;
+  }
+
+  .transactions__search {
+    grid-column: 1 / -1;
   }
 }
 
 @media (min-width: 1024px) {
+  .transactions__filters {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  }
+
+  .transactions__search {
+    grid-column: auto;
+  }
+
   .transactions__empty {
     font-size: 1.25rem;
   }

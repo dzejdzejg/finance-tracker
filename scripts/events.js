@@ -8,27 +8,35 @@ function closeSettings() {
   modal?.classList.remove('is-shown');
 }
 
-settingsBtn?.addEventListener('click', openSettings);
+function goToView(target) {
+  if (target === 'settings') {
+    openSettings();
+    return;
+  }
 
-navLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    const target = link.dataset.go;
+  navLinks.forEach((l) => l.removeAttribute('aria-current'));
 
-    if (target === 'settings') {
-      openSettings();
-      return;
-    }
+  const activeLink = [...navLinks].find((l) => l.dataset.go === target);
 
-    navLinks.forEach((l) => l.removeAttribute('aria-current'));
-    link.setAttribute('aria-current', 'page');
+  activeLink?.setAttribute('aria-current', 'page');
 
-    views.forEach((view) => {
-      const isTarget = view.dataset.view === target;
-      view.hidden = !isTarget;
-    });
+  views.forEach((view) => {
+    const isTarget = view.dataset.view === target;
+    view.hidden = !isTarget;
   });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('[data-go]');
+  if (!trigger) return;
+
+  const target = trigger.dataset.go;
+  goToView(target);
 });
 
+settingsBtn?.addEventListener('click', openSettings);
 closeBtn?.addEventListener('click', closeSettings);
 modalOverlay?.addEventListener('click', closeSettings);
 

@@ -130,6 +130,50 @@
   color: red;
 }
 
+.history__footer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.history__see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.history__see-all::after {
+  content: '→';
+  font-size: 0.95rem;
+  transition: transform 0.15s ease;
+}
+
+.history__see-all:hover {
+  background: rgba(99, 102, 241, 0.14);
+  box-shadow: 0 6px 14px rgba(99, 102, 241, 0.25);
+}
+
+.history__see-all:hover::after {
+  transform: translateX(3px);
+}
+
+.history__see-all:active {
+  transform: scale(0.96);
+}
+
 /* === REMINDER === */
 .history__aside {
   padding: 18px;

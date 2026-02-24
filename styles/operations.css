@@ -171,7 +171,12 @@
 }
 
 .operations__form--income .operations__input-amount[name='amount'] {
-  grid-column: 1 / -1;
+  grid-column: 1 / 2;
+}
+
+.operations__form--income .operations__select[name='category'] {
+  grid-column: 2 / 3;
+  width: 100%;
 }
 
 .operations__form--income .operations__input[name='date'] {
