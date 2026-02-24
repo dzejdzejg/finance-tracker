@@ -1,0 +1,139 @@
+/* === Budgets View === */
+.view--budgets:not([hidden]) {
+  display: grid;
+  gap: 20px;
+}
+
+.budgets__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.budgets__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.budgets__add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.budgets__add:active {
+  transform: scale(0.96);
+}
+
+.budgets__add:hover {
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+/* List */
+.budgets__list {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+}
+
+.budgets__item {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.budgets__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(17, 24, 39, 0.1);
+}
+
+.budgets__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.budgets__category {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.budgets__limit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.budgets__progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.08);
+  overflow: hidden;
+}
+
+.budgets__progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  transition: width 0.3s ease;
+}
+
+.budgets__spent {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111827;
+  opacity: 0.85;
+}
+
+.budgets__empty {
+  padding: 30px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #6b7280;
+}
+
+@media (min-width: 768px) {
+  .budgets__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .budgets__list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .budgets__title {
+    font-size: 1.75rem;
+  }
+
+  .budgets__empty {
+    font-size: 1.25rem;
+  }
+}
