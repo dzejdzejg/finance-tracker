@@ -1,5 +1,5 @@
 /* === Transactions View === */
-.view--transactions {
+.view--transactions:not([hidden]) {
   display: grid;
   gap: 20px;
 }
