@@ -41,3 +41,13 @@
 .charts__card--time {
   display: none;
 }
+
+@media (min-width: 768px) {
+  .charts__card {
+    flex: 1 1 0;
+  }
+
+  .charts__card--time {
+    display: block;
+  }
+}

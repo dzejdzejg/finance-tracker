@@ -1,11 +1,5 @@
 .sidebar,
-.operations__form-title,
-.operations__card--balance,
-.dashboard__title,
-.history__description-note,
-.crypto__symbol-header,
-.crypto__symbol-item,
-.sidebar__crypto {
+.dashboard__title {
   display: none;
 }
 
@@ -18,10 +12,6 @@
 
   .topbar__name {
     font-size: 1.3rem;
-  }
-
-  .operations__card {
-    padding: 22px;
   }
 }
 
@@ -44,60 +34,6 @@
   .topbar__settings {
     width: 44px;
     height: 44px;
-  }
-
-  .charts__card {
-    flex: 1 1 0;
-  }
-
-  .charts__card--time {
-    display: block;
-  }
-
-  .history {
-    padding: 0;
-  }
-
-  .history__transaction {
-    grid-template-columns: 28px minmax(0, 1fr) 58px 74px;
-    grid-template-rows: auto auto;
-  }
-
-  .history__description-note {
-    display: block;
-    grid-column: 2/3;
-    grid-row: 2;
-    min-width: 0;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #6b7280;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .crypto__symbol-header,
-  .crypto__symbol-item {
-    display: block;
-  }
-
-  .crypto__header,
-  .crypto__list-item {
-    grid-template-columns: minmax(0, 1fr) 100px 140px 80px;
-  }
-
-  .crypto__symbol-header,
-  .crypto__symbol-item {
-    justify-self: center;
-  }
-
-  .crypto__symbol-item {
-    font-size: 0.9rem;
-    font-weight: 800;
-    padding: 4px 8px;
-    border-radius: 999px;
-    background: rgba(99, 102, 241, 0.12);
-    color: #4f46e5;
   }
 }
 
@@ -295,81 +231,12 @@
     width: 48px;
     height: 48px;
   }
-
-  .operations {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    align-items: start;
-  }
-
-  .operations__form-title {
-    display: inline;
-  }
-
-  .operations__forms {
-    display: grid;
-    grid-column: 1 / 4;
-    grid-row: 2;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .operations__card--income {
-    grid-column: 1;
-    grid-row: 1;
-    order: 0;
-  }
-  .operations__card--expenses {
-    grid-column: 2;
-    grid-row: 1;
-    order: 0;
-  }
-  .operations__card--balance {
-    grid-column: 3;
-    grid-row: 1;
-    order: 0;
-    display: grid;
-  }
-
-  .operations__card--income,
-  .operations__card--expenses,
-  .operations__card--balance,
-  .operations__form--income,
-  .operations__form--expenses {
-    order: 0;
-  }
-
-  .history {
-    display: grid;
-    grid-template-columns: 0.6fr 0.4fr;
-    gap: 16px;
-  }
-
-  .history__main,
-  .history__aside {
-    min-width: 0;
-  }
-
-  .history__aside {
-    position: sticky;
-    top: 64px;
-    height: fit-content;
-  }
-
-  .crypto {
-    display: none;
-  }
 }
 
-/* Crypto news starts from 1280px */
+/* >= 1280 */
 @media (min-width: 1280px) {
   .sidebar {
     height: auto;
-  }
-
-  .sidebar__crypto {
-    display: block;
   }
 }
 
@@ -380,26 +247,6 @@
 
   .sidebar {
     width: 240px;
-  }
-
-  .sidebar__crypto-list-item {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .sidebar__crypto-coin {
-    grid-column: 1/-1;
-    grid-row: 1;
-  }
-
-  .sidebar__crypto-price {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .sidebar__crypto-change {
-    grid-column: 2;
-    grid-row: 2;
-    justify-self: end;
   }
 }
 

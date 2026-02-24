@@ -258,3 +258,66 @@
   color: #dc2626;
   filter: drop-shadow(0 2px 6px rgba(220, 38, 38, 0.22));
 }
+
+.crypto__symbol-header,
+.crypto__symbol-item,
+.sidebar__crypto {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .crypto__symbol-header,
+  .crypto__symbol-item {
+    display: block;
+    justify-self: center;
+  }
+
+  .crypto__header,
+  .crypto__list-item {
+    grid-template-columns: minmax(0, 1fr) 100px 140px 80px;
+  }
+
+  .crypto__symbol-item {
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.12);
+    color: #4f46e5;
+  }
+}
+
+@media (min-width: 1024px) {
+  .crypto {
+    display: none;
+  }
+}
+
+/* Crypto news starts from 1280px */
+@media (min-width: 1280px) {
+  .sidebar__crypto {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) and (orientation: landscape) {
+  .sidebar__crypto-list-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sidebar__crypto-coin {
+    grid-column: 1/-1;
+    grid-row: 1;
+  }
+
+  .sidebar__crypto-price {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .sidebar__crypto-change {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+}

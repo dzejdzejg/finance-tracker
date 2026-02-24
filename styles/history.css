@@ -225,3 +225,50 @@
   font-size: 1.1rem;
   font-weight: 700;
 }
+
+.history__description-note {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .history {
+    padding: 0;
+  }
+
+  .history__transaction {
+    grid-template-columns: 28px minmax(0, 1fr) 58px 74px;
+    grid-template-rows: auto auto;
+  }
+
+  .history__description-note {
+    display: block;
+    grid-column: 2/3;
+    grid-row: 2;
+    min-width: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #6b7280;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .history {
+    display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    gap: 16px;
+  }
+
+  .history__main,
+  .history__aside {
+    min-width: 0;
+  }
+
+  .history__aside {
+    position: sticky;
+    top: 64px;
+    height: fit-content;
+  }
+}

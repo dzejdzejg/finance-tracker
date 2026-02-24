@@ -1,11 +1,21 @@
 @import url('./reset.css');
+
 @import url('./topbar.css');
+@import url('./modal.css');
+
+/* dashboard components */
 @import url('./operations.css');
 @import url('./charts.css');
 @import url('./crypto.css');
 @import url('./history.css');
-@import url('./modal.css');
+
+/* mobile navigation */
 @import url('./mobile-nav.css');
+
+/* views */
+@import url('./transactions.css');
+
+
 @import url('./responsive.css');
 
 body {
