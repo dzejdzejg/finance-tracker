@@ -20,3 +20,16 @@ export const transactionsListEmpty = document.querySelector('.transactions__empt
 /* Reminders */
 export const remindersList = document.querySelector('.history__reminders');
 export const remindersEmpty = document.querySelector('.history__empty-reminders');
+
+/* Amounts summary */
+export const incomeAmount = document.querySelector('[data-summary="income"]');
+export const expensesAmount = document.querySelector('[data-summary="expenses"]');
+export const balanceAmount = document.querySelector('[data-summary="balance"]');
+
+export const incomeTrendValue = document.querySelector('[data-trend="income"]');
+export const expensesTrendValue = document.querySelector('[data-trend="expenses"]');
+export const balanceTrendValue = document.querySelector('[data-trend="balance"]');
+
+export const incomeTrendBox = document.querySelector('[data-trend-box="income"]');
+export const expensesTrendBox = document.querySelector('[data-trend-box="expenses"]');
+export const balanceTrendBox = document.querySelector('[data-trend-box="balance"]');

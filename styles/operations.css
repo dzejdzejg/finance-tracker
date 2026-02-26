@@ -41,6 +41,10 @@
   order: 4;
 }
 
+.operations__card--balance {
+  order: 5;
+}
+
 .operations__title {
   grid-area: title;
   padding-bottom: 15px;
@@ -77,19 +81,14 @@
   animation: pulse 2s infinite;
 }
 
-.operations__trend .fa-arrow-trend-up {
-  color: rgb(17, 210, 17);
-  font-size: 0.9rem;
-}
-
 .operations__trend--down {
-  color: red;
+  color: rgb(242, 74, 74);
   border: 1px solid rgb(216, 172, 169);
   background: rgba(249, 204, 195, 0.3);
 }
 
+.operations__trend .fa-arrow-trend-up,
 .operations__trend .fa-arrow-trend-down {
-  color: red;
   font-size: 0.9rem;
 }
 
@@ -214,8 +213,7 @@
   width: 100%;
 }
 
-.operations__form-title,
-.operations__card--balance {
+.operations__form-title {
   display: none;
 }
 
