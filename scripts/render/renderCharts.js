@@ -1,6 +1,8 @@
-import { initCharts, updateCategoryChart, updateTimeChart } from '../chart.js';
+import { initCharts, updateCategoryChart, updateTimeChart, updateCashflowChart, updateBalanceChart } from '../chart.js';
 import { aggregateExpensesByCategory } from '../state/aggregateExpensesByCategory.js';
 import { aggregateExpensesByMonth } from '../state/aggregateExpensesByMonth.js';
+import { aggregateCashflowByMonth } from '../state/aggregateCashflowByMonth.js';
+import { aggregateBalanceGrowth } from '../state/aggregateBalanceGrowth.js';
 
 export function renderCharts(transactions = []) {
   initCharts();
@@ -10,4 +12,10 @@ export function renderCharts(transactions = []) {
 
   const { labels: monthLabels, values: monthValues } = aggregateExpensesByMonth(transactions);
   updateTimeChart(monthLabels, monthValues);
+
+  const { labels, income, expenses } = aggregateCashflowByMonth(transactions);
+  updateCashflowChart(labels, income, expenses);
+
+  const { labels: balLabels, values: balValues } = aggregateBalanceGrowth(transactions, 0);
+  updateBalanceChart(balLabels, balValues);
 }

@@ -10,6 +10,12 @@ export const views = document.querySelectorAll('.view');
 export const categoryCtx = document.getElementById('chart-category')?.getContext('2d');
 export const timeCtx = document.getElementById('chart-time')?.getContext('2d');
 
+/* Charts Analytics */
+export const categoryCtxAnalytics = document.getElementById('analytics-category')?.getContext('2d');
+export const timeCtxAnalytics = document.getElementById('analytics-month')?.getContext('2d');
+export const cashflowCtxAnalytics = document.getElementById('analytics-cashflow')?.getContext('2d');
+export const balanceCtxAnalytics = document.getElementById('analytics-balance')?.getContext('2d');
+
 /* Transactions dashboard view */
 export const dashboardHistoryList = document.querySelector('.history__list');
 export const dashboardHistoryEmpty = document.querySelector('.history__empty');

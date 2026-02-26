@@ -61,6 +61,8 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   display: grid;
   grid-template-rows: auto 280px;
+  grid-template-rows: auto 1fr;
+  height: 340px;
   gap: 10px;
   overflow: hidden;
 }
@@ -88,18 +90,16 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .analytics__card:last-child {
-    grid-column: 1 / -1;
-  }
-
   .analytics__card {
     grid-template-rows: auto 320px;
+    height: 360px;
   }
 }
 
 @media (min-width: 1024px) {
   .analytics__card {
     grid-template-rows: auto 360px;
+    height: 400px;
   }
 
   .analytics__card-title {
