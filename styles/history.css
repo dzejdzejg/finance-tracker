@@ -16,7 +16,7 @@
 
 .history__header {
   display: grid;
-  grid-template-columns: 1fr 58px 74px;
+  grid-template-columns: 1fr 68px 78px;
   grid-template-rows: auto auto;
   align-items: center;
   gap: 8px;
@@ -85,7 +85,7 @@
 
 .history__transaction {
   display: grid;
-  grid-template-columns: 28px minmax(0, 1fr) 58px 74px;
+  grid-template-columns: 28px minmax(0, 1fr) 68px 78px;
   align-items: center;
   padding: 8px 0 12px;
   gap: 8px;
@@ -279,8 +279,12 @@
     padding: 0;
   }
 
+  .history__header {
+    grid-template-columns: 1fr 80px 80px;
+  }
+
   .history__transaction {
-    grid-template-columns: 28px minmax(0, 1fr) 58px 74px;
+    grid-template-columns: 28px minmax(0, 1fr) 80px 80px;
     grid-template-rows: auto auto;
   }
 

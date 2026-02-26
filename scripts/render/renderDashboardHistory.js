@@ -9,7 +9,13 @@ function formatDateLabel(iso) {
 }
 
 export function renderDashboardHistory() {
-  const transactionItems = DEMO_DATA.transactions.slice(0, 6);
+  const transactionItems = [...DEMO_DATA.transactions]
+    .sort((a, b) => {
+      const aTime = a.date ? new Date(a.date).getTime() : 0;
+      const bTime = b.date ? new Date(b.date).getTime() : 0;
+      return bTime - aTime;
+    })
+    .slice(0, 6);
 
   if (!transactionItems.length) {
     dashboardHistoryList.innerHTML = '';
