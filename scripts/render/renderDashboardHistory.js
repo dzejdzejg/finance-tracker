@@ -1,4 +1,4 @@
-import { RIGID_DATA, CATEGORY_ICONS } from '../data/demoData.js';
+import { DEMO_DATA, CATEGORY_ICONS } from '../data/demoData.js';
 import { dashboardHistoryList, dashboardHistoryEmpty } from '../dom.js';
 
 function formatDateLabel(iso) {
@@ -9,7 +9,7 @@ function formatDateLabel(iso) {
 }
 
 export function renderDashboardHistory() {
-  const transactionItems = RIGID_DATA.transactions.slice(0, 6);
+  const transactionItems = DEMO_DATA.transactions.slice(0, 6);
 
   if (!transactionItems.length) {
     dashboardHistoryList.innerHTML = '';
@@ -27,7 +27,7 @@ export function renderDashboardHistory() {
       const iconClass = CATEGORY_ICONS?.[t.category] ?? 'fa-receipt';
 
       return `
-      <li class="history__transaction">
+      <li class="history__transaction" data-id="${t.id}">
         <span class="history__icon">
           <i class="fa-solid ${iconClass}"></i>
         </span>

@@ -1,4 +1,4 @@
-export const RIGID_DATA = {
+export const DEMO_DATA = {
   transactions: [
     { id: 't1', type: 'income', amount: 3200, date: '2026-02-07', category: 'Salary', description: 'Monthly Salary' },
     { id: 't2', type: 'income', amount: 200, date: '2026-02-14', category: 'Bonus', description: 'Work Bonus' },

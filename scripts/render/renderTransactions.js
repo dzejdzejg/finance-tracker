@@ -1,4 +1,4 @@
-import { RIGID_DATA, CATEGORY_ICONS } from '../data/demoData.js';
+import { DEMO_DATA, CATEGORY_ICONS } from '../data/demoData.js';
 import { transactionsList, transactionsListEmpty } from '../dom.js';
 
 function formatDateLabel(iso) {
@@ -9,7 +9,7 @@ function formatDateLabel(iso) {
 }
 
 export function renderTransactionsList() {
-  const transactionItems = RIGID_DATA.transactions;
+  const transactionItems = DEMO_DATA.transactions;
 
   if (!transactionItems.length) {
     transactionsList.innerHTML = '';
@@ -27,7 +27,7 @@ export function renderTransactionsList() {
       const iconClass = CATEGORY_ICONS?.[t.category] ?? 'fa-receipt';
 
       return `
-      <li class="transactions__item">
+      <li class="transactions__item" data-id="${t.id}">
         <span class="transactions__icon"><i class="fa-solid ${iconClass}"></i></span>
 
         <div class="transactions__info">
