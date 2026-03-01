@@ -15,6 +15,7 @@
         <img src="images/logo-100x100.png" alt="Finance Tracker logo" class="topbar__logo" />
         <p class="topbar__name">Finance Tracker</p>
       </div>
+      <span class="topbar__badge" hidden>Demo mode</span>
       <div class="topbar__right">
         <button class="topbar__theme" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
         <button class="topbar__settings" aria-label="Open settings"><i class="fa-solid fa-gear"></i></button>
@@ -92,6 +93,9 @@
           </div>
 
           <div class="sidebar__crypto-content">
+            <p class="sidebar__crypto-loading" hidden>Loading...</p>
+            <p class="sidebar__crypto-empty" hidden>No crypto data.</p>
+
             <ul class="sidebar__crypto-list">
               <li class="sidebar__crypto-list-item">
                 <div class="sidebar__crypto-coin">
@@ -335,7 +339,7 @@
                 <div class="history__main">
                   <div class="history__header">
                     <p class="history__title">History</p>
-                    <button class="history__sort" aria-label="Sort transactions"><i class="fa-solid fa-sort"></i>Sort</button>
+                    <button class="history__sort" aria-label="Sort transactions"><i class="fa-solid fa-arrow-down"></i>Sort</button>
                     <p class="history__time">Date</p>
                     <p class="history__price">Amount</p>
                   </div>
@@ -350,7 +354,7 @@
                 <div class="history__aside">
                   <p class="history__reminder-title">Add a reminder</p>
                   <div class="history__reminder-form">
-                    <input type="text" class="history__input" placeholder="Change demo mode in settings to add transactions" /> 
+                    <input type="text" class="history__input" placeholder="Change demo mode in settings to add transactions" />
                     <button class="history__add">Add</button>
                   </div>
                   <ul class="history__reminders"></ul>
@@ -424,6 +428,7 @@
                   <canvas id="analytics-balance"></canvas>
                 </div>
               </div>
+              <p class="analytics__empty" hidden>No data yet. Add transactions to see analytics.</p>
             </section>
 
             <section class="view view--budgets" data-view="budgets" hidden>

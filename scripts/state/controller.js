@@ -1,4 +1,4 @@
-import { reminderInput, reminderAddBtn, incomeForm, expensesForm } from '../dom.js';
+import { reminderInput, reminderAddBtn, incomeForm, expensesForm, transactionsList, topbarBadge } from '../dom.js';
 import { appMode } from './state.js';
 import { showToast } from '../events.js';
 
@@ -8,6 +8,11 @@ export function guardDemo() {
     return true;
   }
   return false;
+}
+
+function updateDemoBadge() {
+  if (!topbarBadge) return;
+  topbarBadge.hidden = !appMode.demo;
 }
 
 function handleIncomeSubmit(e) {
@@ -37,8 +42,23 @@ function handleReminderAdd() {
   reminderInput.value = '';
 }
 
+function handleTransactionsListClick(e) {
+  const target = e.target instanceof HTMLElement ? e.target : null;
+  if (!target) return;
+
+  const editBtn = target.closest('.transactions__edit');
+  const deleteBtn = target.closest('.transactions__delete');
+
+  if (!editBtn && !deleteBtn) return;
+
+  if (guardDemo()) return;
+}
+
 export function initController() {
+  updateDemoBadge();
+
   incomeForm?.addEventListener('submit', handleIncomeSubmit);
   expensesForm?.addEventListener('submit', handleExpensesSubmit);
   reminderAddBtn?.addEventListener('click', handleReminderAdd);
+  transactionsList?.addEventListener('click', handleTransactionsListClick);
 }

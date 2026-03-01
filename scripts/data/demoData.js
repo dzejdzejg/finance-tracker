@@ -38,10 +38,11 @@ export const DEMO_DATA = {
     { id: 't27', type: 'expense', amount: 230, date: '2026-05-22', category: 'Shopping', description: 'New headphones' },
   ],
   budgets: [
-    { id: 'b1', category: 'Food', limit: 300, period: 'month' },
-    { id: 'b2', category: 'Entertainment', limit: 120, period: 'month' },
-    { id: 'b3', category: 'Bills', limit: 350, period: 'month' },
-    { id: 'b4', category: 'Others', limit: 100, period: 'month' },
+    { id: 'b1', category: 'Food', limit: 300, progress: 43, period: 'month' },
+    { id: 'b2', category: 'Entertainment', limit: 120, progress: 89, period: 'month' },
+    { id: 'b3', category: 'Bills', limit: 350, progress: 57, period: 'month' },
+    { id: 'b4', category: 'Others', limit: 100, progress: 14, period: 'month' },
+    { id: 'b5', category: 'Shopping', limit: 100, progress: 38, period: 'month' },
   ],
   reminders: [
     { id: 'r1', name: 'Amazon Prime renews this month' },

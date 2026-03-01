@@ -89,6 +89,14 @@
   border-top: 1px solid rgba(17, 24, 39, 0.1);
 }
 
+.sidebar__crypto-loading,
+.sidebar__crypto-empty {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6b7280;
+}
+
 .sidebar__crypto-title {
   margin: 0 0 10px;
   font-size: 1.05rem;

@@ -19,12 +19,11 @@ function getFilteredTransactions() {
   const categorySelected = norm(transactionsFilterCategory.value);
   const q = norm(transactionsSearch.value);
 
-  const fromValue = transactionsFilterFrom.value; // "YYYY-MM-DD" albo ""
-  const toValue = transactionsFilterTo.value; // "YYYY-MM-DD" albo ""
+  const fromValue = transactionsFilterFrom.value;
+  const toValue = transactionsFilterTo.value;
 
-  // start dnia od
   const fromTime = fromValue ? new Date(`${fromValue}T00:00:00`).getTime() : null;
-  // koniec dnia do (żeby "to" było inkluzywne)
+
   const toTime = toValue ? new Date(`${toValue}T23:59:59.999`).getTime() : null;
 
   return DEMO_DATA.transactions.filter((t) => {
@@ -41,7 +40,6 @@ function getFilteredTransactions() {
 
     const searchOk = q === '' || tCategory.includes(q) || tDescr.includes(q) || tType.includes(q) || tAmount.includes(q) || (t.date ? norm(t.date).includes(q) : false);
 
-    // jeśli ustawiono from/to, a transakcja nie ma daty -> wypada z listy
     const fromOk = fromTime === null || (tTime !== null && tTime >= fromTime);
     const toOk = toTime === null || (tTime !== null && tTime <= toTime);
 

@@ -2,6 +2,7 @@ export const settingsBtn = document.querySelector('.topbar__settings');
 export const modal = document.querySelector('.modal');
 export const modalOverlay = document.querySelector('.modal__overlay');
 export const closeBtn = document.querySelector('.modal__close');
+export const topbarBadge = document.querySelector('.topbar__badge');
 
 export const navLinks = document.querySelectorAll('[data-go]');
 export const views = document.querySelectorAll('.view');
@@ -18,6 +19,8 @@ export const timeCtxAnalytics = document.getElementById('analytics-month')?.getC
 export const cashflowCtxAnalytics = document.getElementById('analytics-cashflow')?.getContext('2d');
 export const balanceCtxAnalytics = document.getElementById('analytics-balance')?.getContext('2d');
 
+export const analyticsEmpty = document.querySelector('.analytics__empty');
+
 /* Transactions dashboard view */
 export const incomeForm = document.querySelector('.operations__form--income');
 export const expensesForm = document.querySelector('.operations__form--expenses');
@@ -27,6 +30,7 @@ export const reminderAddBtn = document.querySelector('.history__add');
 
 export const dashboardHistoryList = document.querySelector('.history__list');
 export const dashboardHistoryEmpty = document.querySelector('.history__empty');
+export const historySortBtn = document.querySelector('.history__sort');
 
 /* Transactions view */
 export const transactionsList = document.querySelector('.transactions__list');

@@ -23,7 +23,7 @@ export function renderBudgets() {
         </div>
 
         <div class="budgets__progress">
-          <div class="budgets__progress-bar" style="width: 65%"></div>
+          <div class="budgets__progress-bar" style="width: ${b.progress}%"></div>
         </div>
 
         <span class="budgets__spent">$195 spent</span>
