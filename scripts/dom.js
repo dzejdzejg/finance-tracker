@@ -6,6 +6,8 @@ export const closeBtn = document.querySelector('.modal__close');
 export const navLinks = document.querySelectorAll('[data-go]');
 export const views = document.querySelectorAll('.view');
 
+export const toastEl = document.querySelector('.toast');
+
 /* Charts */
 export const categoryCtx = document.getElementById('chart-category')?.getContext('2d');
 export const timeCtx = document.getElementById('chart-time')?.getContext('2d');
@@ -17,6 +19,12 @@ export const cashflowCtxAnalytics = document.getElementById('analytics-cashflow'
 export const balanceCtxAnalytics = document.getElementById('analytics-balance')?.getContext('2d');
 
 /* Transactions dashboard view */
+export const incomeForm = document.querySelector('.operations__form--income');
+export const expensesForm = document.querySelector('.operations__form--expenses');
+
+export const reminderInput = document.querySelector('.history__input');
+export const reminderAddBtn = document.querySelector('.history__add');
+
 export const dashboardHistoryList = document.querySelector('.history__list');
 export const dashboardHistoryEmpty = document.querySelector('.history__empty');
 

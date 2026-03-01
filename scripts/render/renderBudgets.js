@@ -1,5 +1,6 @@
 import { DEMO_DATA } from '../data/demoData.js';
 import { budgetsList, budgetsEmpty, budgetsAddBtn, budgetsModal, budgetsForm } from '../dom.js';
+import { guardDemo } from '../state/controller.js';
 
 export function renderBudgets() {
   const budgetsItems = DEMO_DATA.budgets;
@@ -7,6 +8,7 @@ export function renderBudgets() {
   if (!budgetsItems.length) {
     budgetsList.innerHTML = '';
     budgetsEmpty.hidden = false;
+    return;
   }
 
   budgetsEmpty.hidden = true;
@@ -45,7 +47,10 @@ function closeBudgetModal() {
 export function initBudgetsModal() {
   if (!budgetsAddBtn || !budgetsModal) return;
 
-  budgetsAddBtn.addEventListener('click', openBudgetModal);
+  budgetsAddBtn.addEventListener('click', () => {
+    if (guardDemo()) return;
+    openBudgetModal();
+  });
 
   budgetsModal.addEventListener('click', (e) => {
     const el = e.target instanceof HTMLElement ? e.target.closest('[data-close="true"]') : null;
@@ -58,6 +63,8 @@ export function initBudgetsModal() {
 
   budgetsForm?.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (guardDemo()) return;
+
     closeBudgetModal();
   });
 }

@@ -211,7 +211,7 @@
                   <form class="operations__form operations__form--income">
                     <p class="operations__form-title">Income</p>
                     <label class="sr-only" for="income-description">Income description</label>
-                    <input type="text" name="description" class="operations__input-description" id="income-description" placeholder="Description (optional)" />
+                    <input type="text" name="description" class="operations__input-description" id="income-description" placeholder="Change demo mode in settings to add transactions" />
 
                     <label class="sr-only" for="income-amount">Income amount</label>
                     <input type="number" name="amount" class="operations__input-amount" id="income-amount" placeholder="e.g. 500, 1000... ($)" inputmode="decimal" min="0" step="0.01" required />
@@ -238,7 +238,7 @@
                     <p class="operations__form-title">Expenses</p>
 
                     <label class="sr-only" for="expenses-description">Expenses description</label>
-                    <input type="text" name="description" class="operations__input-description" id="expenses-description" placeholder="Description (optional)" />
+                    <input type="text" name="description" class="operations__input-description" id="expenses-description" placeholder="Change demo mode in settings to add transactions" />
 
                     <label class="sr-only" for="expense-amount">Expense amount</label>
                     <input type="number" name="amount" class="operations__input-amount" id="expense-amount" placeholder="e.g. 78.45... ($)" inputmode="decimal" min="0" step="0.01" required />
@@ -349,7 +349,10 @@
                 </div>
                 <div class="history__aside">
                   <p class="history__reminder-title">Add a reminder</p>
-                  <div class="history__reminder-form"><input type="text" class="history__input" placeholder="Remember about..." /> <button class="history__add">Add</button></div>
+                  <div class="history__reminder-form">
+                    <input type="text" class="history__input" placeholder="Change demo mode in settings to add transactions" /> 
+                    <button class="history__add">Add</button>
+                  </div>
                   <ul class="history__reminders"></ul>
 
                   <p class="history__empty-reminders" hidden>No reminders yet.</p>

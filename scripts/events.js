@@ -1,4 +1,4 @@
-import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views } from './dom.js';
+import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl } from './dom.js';
 
 function openSettings() {
   modal?.classList.add('is-shown');
@@ -45,3 +45,29 @@ document.addEventListener('keydown', (e) => {
     closeSettings();
   }
 });
+
+/* Toast */
+let toastTimeout;
+
+export function showToast(message, type = 'info', duration = 3000) {
+  if (!toastEl) return;
+
+  clearTimeout(toastTimeout);
+
+  toastEl.textContent = message;
+
+  toastEl.classList.remove('toast--success', 'toast--error', 'toast--info');
+  toastEl.classList.add(`toast--${type}`);
+  
+  toastEl.hidden = false;
+  void toastEl.offsetWidth;
+  toastEl.classList.add('toast--visible');
+
+  toastTimeout = setTimeout(() => {
+    toastEl.classList.remove('toast--visible');
+
+    setTimeout(() => {
+      toastEl.hidden = true;
+    }, 250);
+  }, duration);
+}
