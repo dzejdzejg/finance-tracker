@@ -7,6 +7,9 @@ export const topbarBadge = document.querySelector('.topbar__badge');
 export const navLinks = document.querySelectorAll('[data-go]');
 export const views = document.querySelectorAll('.view');
 
+export const newsletterInput = document.querySelector('.sidebar__input');
+export const newsletterBtn = document.querySelector('.sidebar__btn');
+
 export const toastEl = document.querySelector('.toast');
 
 /* Charts */

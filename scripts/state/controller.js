@@ -1,4 +1,4 @@
-import { reminderInput, reminderAddBtn, incomeForm, expensesForm, transactionsList, topbarBadge } from '../dom.js';
+import { reminderInput, reminderAddBtn, incomeForm, expensesForm, transactionsList, topbarBadge, newsletterInput, newsletterBtn } from '../dom.js';
 import { appMode } from './state.js';
 import { showToast } from '../events.js';
 
@@ -13,6 +13,28 @@ export function guardDemo() {
 function updateDemoBadge() {
   if (!topbarBadge) return;
   topbarBadge.hidden = !appMode.demo;
+}
+
+function handleNewsletterSubscribe() {
+  const email = newsletterInput?.value.trim() ?? '';
+
+  if (!email) {
+    showToast('Please enter your email address.', 'error');
+    return;
+  }
+
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!isValid) {
+    showToast('Please enter a valid email address (e.g. name@example.com).', 'error');
+    return;
+  }
+
+  if (guardDemo()) return;
+
+  // user mode (TODO later)
+  showToast('Subscribed!', 'success');
+  newsletterInput.value = '';
 }
 
 function handleIncomeSubmit(e) {
@@ -61,4 +83,5 @@ export function initController() {
   expensesForm?.addEventListener('submit', handleExpensesSubmit);
   reminderAddBtn?.addEventListener('click', handleReminderAdd);
   transactionsList?.addEventListener('click', handleTransactionsListClick);
+  newsletterBtn?.addEventListener('click', handleNewsletterSubscribe);
 }
