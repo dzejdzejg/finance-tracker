@@ -146,6 +146,10 @@
   transform: scale(0.95);
 }
 
+.transactions__description {
+  grid-column: 1 / -1;
+}
+
 .transactions__empty {
   padding: 30px 0;
   font-size: 1.1rem;
@@ -163,6 +167,15 @@
   .transactions__search {
     grid-column: 1 / -1;
   }
+
+  .transactions__item {
+    grid-template-columns: 40px 130px 1fr auto auto;
+  }
+
+  .transactions__description {
+    grid-column: 3;
+    grid-row: 1;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -172,6 +185,10 @@
 
   .transactions__search {
     grid-column: auto;
+  }
+
+  .transactions__item {
+    grid-template-columns: 40px 160px 1fr auto auto;
   }
 
   .transactions__empty {

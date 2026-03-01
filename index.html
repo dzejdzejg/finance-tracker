@@ -371,10 +371,7 @@
                   <option value="expenses">Expenses</option>
                 </select>
 
-                <select class="transactions__filter transactions__filter--category">
-                  <option value="all">All</option>
-                  <!-- dynamic categories-->
-                </select>
+                <select class="transactions__filter transactions__filter--category"></select>
 
                 <input type="date" class="transactions__filter transactions__filter--from" />
                 <input type="date" class="transactions__filter transactions__filter--to" />
@@ -403,27 +400,22 @@
                 </select>
               </div>
 
-              <!-- Charts grid -->
               <div class="analytics__grid">
-                <!-- By category-->
                 <div class="analytics__card">
                   <h3 class="analytics__card-title">Expenses by Category</h3>
                   <canvas id="analytics-category"></canvas>
                 </div>
 
-                <!-- Over month -->
                 <div class="analytics__card">
                   <h3 class="analytics__card-title">Spending Over Month</h3>
                   <canvas id="analytics-month"></canvas>
                 </div>
 
-                <!-- Cashflow -->
                 <div class="analytics__card">
                   <h3 class="analytics__card-title">Cashflow Over Time</h3>
                   <canvas id="analytics-cashflow"></canvas>
                 </div>
 
-                <!-- Balance trend -->
                 <div class="analytics__card">
                   <h3 class="analytics__card-title">Balance Growth</h3>
                   <canvas id="analytics-balance"></canvas>
@@ -438,47 +430,7 @@
                 <button class="budgets__add"><i class="fa-solid fa-plus"></i>Add Budget</button>
               </div>
 
-              <ul class="budgets__list">
-                <li class="budgets__item">
-                  <div class="budgets__info">
-                    <span class="budgets__category">Food</span>
-                    <span class="budgets__limit">$300 / month</span>
-                  </div>
-
-                  <!-- progress -->
-                  <div class="budgets__progress">
-                    <div class="budgets__progress-bar" style="width: 65%"></div>
-                  </div>
-
-                  <span class="budgets__spent">$195 spent</span>
-                </li>
-                <li class="budgets__item">
-                  <div class="budgets__info">
-                    <span class="budgets__category">Food</span>
-                    <span class="budgets__limit">$300 / month</span>
-                  </div>
-
-                  <!-- progress -->
-                  <div class="budgets__progress">
-                    <div class="budgets__progress-bar" style="width: 65%"></div>
-                  </div>
-
-                  <span class="budgets__spent">$195 spent</span>
-                </li>
-                <li class="budgets__item">
-                  <div class="budgets__info">
-                    <span class="budgets__category">Food</span>
-                    <span class="budgets__limit">$300 / month</span>
-                  </div>
-
-                  <!-- progress -->
-                  <div class="budgets__progress">
-                    <div class="budgets__progress-bar" style="width: 65%"></div>
-                  </div>
-
-                  <span class="budgets__spent">$195 spent</span>
-                </li>
-              </ul>
+              <ul class="budgets__list"></ul>
 
               <p class="budgets__empty" hidden>No budgets yet.</p>
             </section>
@@ -513,6 +465,54 @@
         <span class="mobile-nav__label">Settings</span>
       </button>
     </nav>
+
+    <div class="budget-modal" id="budgetModal" hidden>
+      <div class="budget-modal__backdrop" data-close="true"></div>
+
+      <div class="budget-modal__panel" role="dialog" aria-modal="true" aria-labelledby="budgetModalTitle">
+        <div class="budget-modal__header">
+          <h3 id="budgetModalTitle" class="budget-modal__title">Add budget</h3>
+
+          <button class="budget-modal__close" type="button" aria-label="Close" data-close="true">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form class="budget-modal__form" id="budgetForm">
+          <label class="budget-modal__field">
+            <span class="budget-modal__label">Category</span>
+            <select name="category" required>
+              <option value="" disabled selected>Select category</option>
+              <option value="food">Food</option>
+              <option value="bills">Bills</option>
+              <option value="travel">Travel</option>
+              <option value="shopping">Shopping</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="others">Others</option>
+            </select>
+          </label>
+
+          <label class="budget-modal__field">
+            <span class="budget-modal__label">Limit</span>
+            <input name="limit" type="number" min="0" step="0.01" placeholder="e.g. 300" required />
+          </label>
+
+          <label class="budget-modal__field">
+            <span class="budget-modal__label">Period</span>
+            <select name="period" required>
+              <option value="month" selected>month</option>
+              <option value="week">week</option>
+              <option value="year">year</option>
+            </select>
+          </label>
+
+          <div class="budget-modal__actions">
+            <button type="button" class="budget-modal__btn budget-modal__btn--ghost" data-close="true">Cancel</button>
+            <button type="submit" class="budget-modal__btn budget-modal__btn--primary">Save budget</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <div class="toast" role="status" aria-live="polite" hidden></div>
 

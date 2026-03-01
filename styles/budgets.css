@@ -118,6 +118,148 @@
   color: #6b7280;
 }
 
+/* Budgets modal */
+/* === Budget Modal (separate namespace) === */
+.budget-modal[hidden] {
+  display: none;
+}
+
+.budget-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.budget-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.budget-modal__panel {
+  position: relative;
+  max-width: 520px;
+  width: calc(100% - 32px);
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.budget-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.budget-modal__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.budget-modal__close {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.budget-modal__form {
+  display: grid;
+  gap: 12px;
+}
+
+.budget-modal__field {
+  display: grid;
+  gap: 6px;
+}
+
+.budget-modal__field select,
+.budget-modal__field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 24, 39, 0.15);
+  background: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+.budget-modal__field select:hover,
+.budget-modal__field input:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.budget-modal__field select:focus,
+.budget-modal__field input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.budget-modal__field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #6b7280 50%), linear-gradient(135deg, #6b7280 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.budget-modal__field select:disabled,
+.budget-modal__field input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.budget-modal__label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.budget-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.budget-modal__btn {
+  min-height: 40px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.budget-modal__btn--ghost {
+  background: transparent;
+  border-color: rgba(17, 24, 39, 0.15);
+}
+
+.budget-modal__btn--primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+}
+
 @media (min-width: 768px) {
   .budgets__list {
     grid-template-columns: 1fr 1fr;

@@ -24,9 +24,24 @@ export const dashboardHistoryEmpty = document.querySelector('.history__empty');
 export const transactionsList = document.querySelector('.transactions__list');
 export const transactionsListEmpty = document.querySelector('.transactions__empty');
 
+export const transactionsSearch = document.querySelector('.transactions__search');
+export const transactionsFilterType = document.querySelector('.transactions__filter--type');
+export const transactionsFilterCategory = document.querySelector('.transactions__filter--category');
+
+export const transactionsFilterFrom = document.querySelector('.transactions__filter--from');
+export const transactionsFilterTo = document.querySelector('.transactions__filter--to');
+
 /* Reminders */
 export const remindersList = document.querySelector('.history__reminders');
 export const remindersEmpty = document.querySelector('.history__empty-reminders');
+
+/* Budgets view */
+export const budgetsList = document.querySelector('.budgets__list');
+export const budgetsEmpty = document.querySelector('.budgets__empty');
+
+export const budgetsAddBtn = document.querySelector('.budgets__add');
+export const budgetsModal = document.querySelector('#budgetModal');
+export const budgetsForm = document.querySelector('#budgetForm');
 
 /* Amounts summary */
 export const incomeAmount = document.querySelector('[data-summary="income"]');
