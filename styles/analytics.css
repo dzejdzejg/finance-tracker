@@ -13,7 +13,7 @@
 .analytics__title {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 /* Filters */
@@ -32,8 +32,9 @@
   border: 1px solid #e5e7eb;
   font: inherit;
   font-weight: 600;
-  color: #111827;
-  background: #fff;
+  color: var(--text-primary);
+  background: var(--text-secondary);
+  -webkit-text-fill-color: #111827;
   outline: none;
   transition:
     border-color 0.15s ease,
@@ -57,7 +58,7 @@
   padding: 16px;
   border-radius: 16px;
   border: 1px solid rgba(17, 24, 39, 0.08);
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg-analytics-card);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   display: grid;
   grid-template-rows: auto 280px;
@@ -71,7 +72,7 @@
   margin: 0;
   font-size: 1.2rem;
   font-weight: 800;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .view--analytics canvas {

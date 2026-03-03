@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--bg-topbar);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -26,8 +26,9 @@
 .topbar__name {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #111827;
+  color: var(--name-topbar);
   letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
 .topbar__right {
@@ -43,11 +44,11 @@
   height: 40px;
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--bg-icons-topbar);
+  border: var(--border-topbar-icons);
   border-radius: 12px;
   font-size: 1.2rem;
-  color: #374151;
+  color: var(--color-topbar-icons);
   cursor: pointer;
   transition:
     background 0.15s ease,

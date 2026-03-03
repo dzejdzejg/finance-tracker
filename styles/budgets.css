@@ -15,7 +15,7 @@
 .budgets__title {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .budgets__add {
@@ -57,7 +57,7 @@
   padding: 16px;
   border-radius: 16px;
   border: 1px solid rgba(17, 24, 39, 0.08);
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg-budgets-item);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   transition:
     transform 0.1s ease,
@@ -79,7 +79,7 @@
 .budgets__category {
   font-weight: 800;
   font-size: 1.05rem;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .budgets__limit {
@@ -106,7 +106,7 @@
 .budgets__spent {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--text-primary);
   opacity: 0.85;
 }
 
@@ -141,7 +141,7 @@
   max-width: 520px;
   width: calc(100% - 32px);
   margin: 80px auto;
-  background: #fff;
+  background: var(--text-secondary);
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -158,7 +158,7 @@
 .budget-modal__title {
   font-size: 1.1rem;
   font-weight: 800;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .budget-modal__close {
@@ -185,10 +185,10 @@
   padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid rgba(17, 24, 39, 0.15);
-  background: #ffffff;
+  background: var(--text-secondary);
   font-size: 0.95rem;
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary);
   outline: none;
   transition:
     border-color 0.15s ease,
@@ -257,7 +257,7 @@
 
 .budget-modal__btn--primary {
   background: linear-gradient(135deg, #6366f1, #4f46e5);
-  color: #fff;
+  color: var(--text-secondary);
 }
 
 @media (min-width: 768px) {

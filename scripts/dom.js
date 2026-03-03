@@ -3,6 +3,7 @@ export const modal = document.querySelector('.modal');
 export const modalOverlay = document.querySelector('.modal__overlay');
 export const closeBtn = document.querySelector('.modal__close');
 export const topbarBadge = document.querySelector('.topbar__badge');
+export const themeBtn = document.querySelector('.topbar__theme');
 
 export const navLinks = document.querySelectorAll('[data-go]');
 export const views = document.querySelectorAll('.view');

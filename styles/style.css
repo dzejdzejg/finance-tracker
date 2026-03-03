@@ -1,5 +1,6 @@
 @import url('./reset.css');
 @import url('./disabled.css');
+
 @import url('./toast.css');
 
 @import url('./topbar.css');
@@ -20,9 +21,61 @@
 @import url('./budgets.css');
 
 @import url('./responsive.css');
+@import url('./theme-dark.css');
+
+:root {
+  --bg-body: lightgray;
+  --text-primary: #111827;
+  --text-secondary: #fff;
+
+  --bg-topbar: rgba(255, 255, 255, 0.75);
+  --name-topbar: #111827;
+  --bg-topbar-icons: rgba(255, 255, 255, 0.6);
+  --color-topbar-icons: #374151;
+  --border-topbar-icons: 1px solid rgba(0, 0, 0, 0.08);
+
+  --bg-modal: rgba(255, 255, 255, 0.92);
+  --bb-modal: 1px solid rgba(17, 24, 39, 0.08);
+  --bg-modal-list-item: rgba(255, 255, 255, 0.65);
+  --bg-modal-list-item-hover: rgba(255, 255, 255, 0.9);
+  --bg-modal-setting-switch: #e8e5e5;
+  --bg-modal-setting-switch-before: #fff;
+  --bg-modal-close: rgba(255, 255, 255, 0.7);
+  --bg-modal-close-hover: rgba(99, 102, 241, 0.12);
+  --color-modal-demo-title: #374151;
+
+  --bg-operations-card: rgba(255, 255, 255, 0.65);
+  --bg-operations-form: rgba(255, 255, 255, 0.65);
+  --bg-charts: rgba(255, 255, 255, 0.65);
+
+  --bg-crypto: rgba(255, 255, 255, 0.65);
+  --text-crypto-header: rgba(107, 114, 128, 0.95);
+  --bg-sidebar-crypto-item: rgba(255, 255, 255, 0.82);
+  --bg-sidebar-crypto-item-hover: rgba(255, 255, 255, 0.96);
+  --color-sidebar-subscribe: #fff;
+
+  --color-crypto-mobile: #000;
+
+  --bg-history: rgba(255, 255, 255, 0.65);
+  --bg-history-aside: rgba(255, 255, 255, 0.65);
+  --bb-history-transaction-item: 2px solid lightgray;
+  --color-history-transaction-item-icon: #000;
+  --bg-sidebar: rgba(255, 255, 255, 0.65);
+  --bg-sidebar-link: rgba(255, 255, 255, 0.6);
+  --bg-sidebar-link-hover: #fff;
+
+  --bg-mobile-nav: rgba(255, 255, 255, 0.9);
+  --bg-mobile-nav-link-current: rgba(99, 102, 241, 0.14);
+
+  --bg-transactions-item: rgba(255, 255, 255, 0.8);
+  --bg-transactions-item-icons: rgba(17, 24, 39, 0.05);
+
+  --bg-analytics-card: rgba(255, 255, 255, 0.8);
+  --bg-budgets-item: rgba(255, 255, 255, 0.8);
+}
 
 body {
-  background-color: lightgray;
+  background-color: var(--bg-body);
   font-family: 'Nunito', sans-serif;
   position: relative;
 }

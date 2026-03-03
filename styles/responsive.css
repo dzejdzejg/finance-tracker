@@ -64,7 +64,7 @@
     position: sticky;
     top: 64px;
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--bg-sidebar);
     backdrop-filter: blur(2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
     overflow: visible;
@@ -74,7 +74,7 @@
     margin: 0 0 12px;
     font-size: 1.4rem;
     font-weight: 800;
-    color: #111827;
+    color: var(--text-primary);
   }
 
   .sidebar__nav {
@@ -108,6 +108,7 @@
     font-size: 1.1rem;
     font-weight: 700;
     text-align: center;
+    color: var(--text-primary);
   }
 
   .sidebar__input {
@@ -119,8 +120,9 @@
     border-radius: 10px;
     border: 1px solid #e5e7eb;
     outline: none;
-    background-color: #fff;
-    color: #111827;
+    background-color: var(--text-secondary);
+    color: var(--text-primary);
+    -webkit-text-fill-color: #111827;
   }
 
   .sidebar__input:focus {
@@ -137,7 +139,7 @@
     font-size: 0.95rem;
     font-weight: 700;
     background: linear-gradient(135deg, #6366f1, #4f46e5);
-    color: white;
+    color: var(--color-sidebar-subscribe);
     cursor: pointer;
     transition:
       transform 0.15s ease,
@@ -169,8 +171,8 @@
     font: inherit;
     font-weight: 700;
     text-align: left;
-    color: #111827;
-    background: rgba(255, 255, 255, 0.6);
+    color: var(--text-primary);
+    background: var(--bg-sidebar-link);
     cursor: pointer;
     transition:
       background 0.2s ease,
@@ -178,7 +180,7 @@
   }
 
   .sidebar__link:hover {
-    background: white;
+    background: var(--bg-sidebar-link-hover);
   }
 
   .sidebar__link:active {
@@ -207,7 +209,7 @@
     display: block;
     font-size: 2.2rem;
     font-weight: 800;
-    color: #111827;
+    color: var(--text-primary);
     margin-bottom: 10px;
   }
 

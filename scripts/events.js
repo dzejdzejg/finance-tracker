@@ -1,4 +1,4 @@
-import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl } from './dom.js';
+import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn } from './dom.js';
 
 function openSettings() {
   modal?.classList.add('is-shown');
@@ -58,7 +58,7 @@ export function showToast(message, type = 'info', duration = 3000) {
 
   toastEl.classList.remove('toast--success', 'toast--error', 'toast--info');
   toastEl.classList.add(`toast--${type}`);
-  
+
   toastEl.hidden = false;
   void toastEl.offsetWidth;
   toastEl.classList.add('toast--visible');
@@ -71,3 +71,16 @@ export function showToast(message, type = 'info', duration = 3000) {
     }, 250);
   }, duration);
 }
+
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'dark') {
+  document.body.classList.add('is-dark');
+}
+
+themeBtn?.addEventListener('click', () => {
+  document.body.classList.toggle('is-dark');
+
+  const isDark = document.body.classList.contains('is-dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});

@@ -1,0 +1,82 @@
+body.is-dark {
+  --bg-body: #0b1220;
+  --text-primary: #dbe2f0;
+  --text-secondary: #94a3b8;
+
+  --bg-topbar: rgba(17, 24, 39, 0.65);
+  --name-topbar: #f3f4f6;
+  --bg-topbar-icons: rgba(17, 24, 39, 0.6);
+  --color-topbar-icons: #a4b5d1;
+  --border-topbar-icons: 1px solid rgba(255, 255, 255, 0.08);
+
+  --bg-modal: rgba(17, 24, 39, 0.92);
+  --bb-modal: 1px solid rgba(255, 255, 255, 0.12);
+  --bg-modal-list-item: rgba(0, 0, 0, 0.25);
+  --bg-modal-list-item-hover: rgba(0, 0, 0, 0.5);
+  --bg-modal-setting-switch: rgba(79, 70, 229, 0.5);
+  --bg-modal-setting-switch-before: rgb(30, 26, 78);
+  --bg-modal-close: rgba(99, 102, 241, 0.12);
+  --bg-modal-close-hover: rgba(99, 102, 241, 0.3);
+  --color-modal-demo-title: #c0c8d5;
+
+  --bg-operations-card: rgba(17, 24, 39, 0.62);
+  --bg-operations-form: rgba(17, 24, 39, 0.62);
+  --bg-charts: rgba(17, 24, 39, 0.62);
+
+  --bg-crypto: rgba(17, 24, 39, 0.62);
+  --text-crypto-header: #e5e7eb;
+  --bg-sidebar-crypto-item: rgba(0, 0, 0, 0.3);
+  --bg-sidebar-crypto-item-hover: rgba(0, 0, 0, 0.7);
+  --color-sidebar-subscribe: rgba(255, 255, 255, 0.8);
+
+  --color-crypto-mobile: #e5e7eb;
+
+  --bg-history: rgba(17, 24, 39, 0.62);
+  --bg-history-aside: rgba(17, 24, 39, 0.62);
+  --bb-history-transaction-item: 1px solid rgba(255, 255, 255, 0.06);
+  --color-history-transaction-item-icon: rgba(79, 70, 229, 0.9);
+  --bg-sidebar: linear-gradient(180deg, rgba(17, 24, 39, 0.85), rgba(15, 23, 42, 0.95));
+  --bg-sidebar-link: rgba(99, 102, 241, 0.06);
+  --bg-sidebar-link-hover: linear-gradient(180deg, rgba(17, 24, 39, 0.75), rgba(15, 23, 42, 0.85));
+
+  --bg-mobile-nav: rgba(17, 24, 39, 0.75);
+  --bg-mobile-nav-link-current: rgba(207, 208, 232, 0.14);
+
+  --bg-transactions-item: rgba(17, 24, 39, 0.66);
+  --bg-transactions-item-icons: rgba(255, 255, 255, 0.05);
+
+  --bg-analytics-card: rgba(17, 24, 39, 0.66);
+  --bg-budgets-item: rgba(17, 24, 39, 0.66);
+}
+
+body.is-dark input,
+body.is-dark select {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-text-fill-color: #e5e7eb;
+}
+
+body.is-dark input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+body.is-dark .history__main,
+body.is-dark .history__aside,
+body.is-dark .modal__dialog,
+body.is-dark .transactions__item,
+body.is-dark .analytics__card,
+body.is-dark .budgets__item {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.is-dark .operations__trend--down {
+  color: rgb(255, 0, 0);
+  border: 1px solid rgb(218, 65, 54);
+  background: rgb(100, 48, 48);
+}
+
+body.is-dark .topbar__name {
+  color: #e2e8f0;
+}

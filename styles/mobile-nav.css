@@ -7,7 +7,7 @@
   justify-content: space-around;
   gap: 8px;
   padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--bg-mobile-nav);
   backdrop-filter: blur(8px);
   border-top: 1px solid rgba(17, 24, 39, 0.08);
 }
@@ -24,6 +24,7 @@
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  color: var(--text-primary);
 }
 
 .mobile-nav__label {
@@ -31,7 +32,7 @@
 }
 
 .mobile-nav__link[aria-current='page'] {
-  background: rgba(99, 102, 241, 0.14);
+  background: var(--bg-mobile-nav-link-current);
 }
 
 .mobile-nav__link .fa-solid {
