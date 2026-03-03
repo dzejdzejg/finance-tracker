@@ -14,16 +14,13 @@ function goToView(target) {
     return;
   }
 
-  navLinks.forEach((l) => l.removeAttribute('aria-current'));
+  const links = Array.from(navLinks);
 
-  const activeLink = [...navLinks].find((l) => l.dataset.go === target);
+  links.forEach((l) => l.removeAttribute('aria-current'));
 
-  activeLink?.setAttribute('aria-current', 'page');
+  links.filter((l) => l.dataset.go === target).forEach((l) => l.setAttribute('aria-current', 'page'));
 
-  views.forEach((view) => {
-    const isTarget = view.dataset.view === target;
-    view.hidden = !isTarget;
-  });
+  views.forEach((view) => (view.hidden = view.dataset.view !== target));
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
