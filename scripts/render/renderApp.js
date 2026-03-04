@@ -3,6 +3,7 @@ import { renderDashboardHistory, initDashboardHistorySort } from './renderDashbo
 import { renderTransactionsList, renderFilterCategoriesByType } from './renderTransactions.js';
 import { renderTotals } from './renderTotals.js';
 import { renderCharts } from './renderCharts.js';
+import { renderCrypto } from './renderCrypto.js';
 import { renderRemindersList } from './renderReminders.js';
 import { renderBudgets, initBudgetsModal } from './renderBudgets.js';
 
@@ -11,6 +12,7 @@ initDashboardHistorySort();
 renderTransactionsList();
 renderFilterCategoriesByType();
 renderTotals();
+renderCrypto();
 renderCharts(DEMO_DATA.transactions);
 renderRemindersList();
 renderBudgets();

@@ -30,6 +30,13 @@ export const balanceCtxAnalytics = document.getElementById('analytics-balance')?
 
 export const analyticsEmpty = document.querySelector('.analytics__empty');
 
+/* Crypto */
+export const cryptoList = document.querySelector('.crypto__list');
+export const cryptoListSidebar = document.querySelector('.sidebar__crypto-list');
+
+export const cryptoLoadingSidebar = document.querySelector('.sidebar__crypto-loading');
+export const cryptoEmptySidebar = document.querySelector('.sidebar__crypto-empty');
+
 /* Transactions dashboard view */
 export const incomeForm = document.querySelector('.operations__form--income');
 export const expensesForm = document.querySelector('.operations__form--expenses');
