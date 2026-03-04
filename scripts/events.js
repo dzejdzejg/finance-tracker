@@ -1,4 +1,4 @@
-import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn, themeToggle, animationsToggle, exportBtn } from './dom.js';
+import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn, themeToggle, animationsToggle, exportBtn, analyticsCategory, analyticsRange } from './dom.js';
 import { DEMO_DATA } from './data/demoData.js';
 import { resizeCharts } from './chart.js';
 
@@ -134,6 +134,10 @@ themeBtn?.addEventListener('click', toggleTheme);
 
 themeToggle?.addEventListener('change', (e) => setTheme(e.target.checked));
 animationsToggle?.addEventListener('change', (e) => setAnimationsEnabled(e.target.checked));
+
+[analyticsRange, analyticsCategory].forEach((el) => {
+  el?.addEventListener('change', () => showToast('Analytics filters will be available in user mode.', 'info'));
+});
 
 exportBtn?.addEventListener('click', () => {
   const payload = {

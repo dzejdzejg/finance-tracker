@@ -63,6 +63,10 @@ export const transactionsFilterTo = document.querySelector('.transactions__filte
 export const remindersList = document.querySelector('.history__reminders');
 export const remindersEmpty = document.querySelector('.history__empty-reminders');
 
+/* Analytics view */
+export const analyticsRange = document.querySelector('.analytics__range');
+export const analyticsCategory = document.querySelector('.analytics__category');
+
 /* Budgets view */
 export const budgetsList = document.querySelector('.budgets__list');
 export const budgetsEmpty = document.querySelector('.budgets__empty');
