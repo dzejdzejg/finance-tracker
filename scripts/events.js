@@ -74,6 +74,8 @@ function goToView(target) {
     });
   }
 
+  localStorage.setItem('activeView', target);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -149,3 +151,7 @@ exportBtn?.addEventListener('click', () => {
   downloadJson('finance-tracker-export.json', payload);
   showToast('Exported JSON successfully', 'success');
 });
+
+const savedView = localStorage.getItem('activeView');
+const allowedViews = new Set(['dashboard', 'transactions', 'analytics', 'budgets']);
+if (allowedViews.has(savedView)) goToView(savedView);
