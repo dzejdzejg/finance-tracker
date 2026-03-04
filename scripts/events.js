@@ -1,5 +1,6 @@
 import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn, themeToggle, animationsToggle, exportBtn } from './dom.js';
 import { DEMO_DATA } from './data/demoData.js';
+import { resizeCharts } from './chart.js';
 
 function openSettings() {
   modal?.classList.add('is-shown');
@@ -66,6 +67,12 @@ function goToView(target) {
   links.filter((l) => l.dataset.go === target).forEach((l) => l.setAttribute('aria-current', 'page'));
 
   views.forEach((view) => (view.hidden = view.dataset.view !== target));
+
+  if (target === 'dashboard' || target === 'analytics') {
+    requestAnimationFrame(() => {
+      resizeCharts();
+    });
+  }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

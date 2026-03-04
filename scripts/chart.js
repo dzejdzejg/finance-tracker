@@ -27,7 +27,7 @@ function getCategoryConfig() {
       responsive: true,
       maintainAspectRatio: false,
       cutout: '75%',
-      layout: { padding: { top: 6, bottom: 40, right: 30 } },
+      layout: { padding: { top: 6, bottom: 40, right: 10 } },
       radius: '90%',
       plugins: {
         legend: {
@@ -242,4 +242,14 @@ export function updateBalanceChart(labels, values) {
   balanceChartAnalytics.data.labels = labels;
   balanceChartAnalytics.data.datasets[0].data = values;
   balanceChartAnalytics.update();
+}
+
+export function resizeCharts() {
+  categoryChart?.resize();
+  timeChart?.resize();
+
+  categoryChartAnalytics?.resize();
+  timeChartAnalytics?.resize();
+  cashflowChartAnalytics?.resize();
+  balanceChartAnalytics?.resize();
 }
