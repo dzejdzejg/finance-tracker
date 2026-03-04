@@ -1,13 +1,58 @@
-import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn } from './dom.js';
+import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn, themeToggle, animationsToggle, exportBtn } from './dom.js';
+import { DEMO_DATA } from './data/demoData.js';
 
 function openSettings() {
   modal?.classList.add('is-shown');
+  syncSettingsUI();
 }
 
 function closeSettings() {
   modal?.classList.remove('is-shown');
 }
 
+/* === THEME === */
+function setTheme(isDark) {
+  document.body.classList.toggle('is-dark', isDark);
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  syncSettingsUI();
+}
+
+function toggleTheme() {
+  setTheme(!document.body.classList.contains('is-dark'));
+}
+
+/* === ANIMATIONS === */
+function setAnimationsEnabled(enabled) {
+  document.body.classList.toggle('no-anim', !enabled);
+  localStorage.setItem('animations', enabled ? 'on' : 'off');
+  syncSettingsUI();
+}
+
+/* === SYNC UI === */
+function syncSettingsUI() {
+  const isDark = document.body.classList.contains('is-dark');
+  themeToggle && (themeToggle.checked = isDark);
+
+  const animationsEnabled = !document.body.classList.contains('no-anim');
+  animationsToggle && (animationsToggle.checked = animationsEnabled);
+}
+
+/* === EXPORT JSON === */
+function downloadJson(filename, data) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  URL.revokeObjectURL(url);
+}
+
+/* === GO TO VIEW === */
 function goToView(target) {
   if (target === 'settings') {
     openSettings();
@@ -33,17 +78,7 @@ document.addEventListener('click', (e) => {
   goToView(target);
 });
 
-settingsBtn?.addEventListener('click', openSettings);
-closeBtn?.addEventListener('click', closeSettings);
-modalOverlay?.addEventListener('click', closeSettings);
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal?.classList.contains('is-shown')) {
-    closeSettings();
-  }
-});
-
-/* Toast */
+/* === TOAST === */
 let toastTimeout;
 
 export function showToast(message, type = 'info', duration = 3000) {
@@ -69,15 +104,41 @@ export function showToast(message, type = 'info', duration = 3000) {
   }, duration);
 }
 
+/* ===== INIT from localStorage ===== */
 const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') document.body.classList.add('is-dark');
 
-if (savedTheme === 'dark') {
-  document.body.classList.add('is-dark');
-}
+const savedAnimations = localStorage.getItem('animations');
+if (savedAnimations === 'off') document.body.classList.add('no-anim');
 
-themeBtn?.addEventListener('click', () => {
-  document.body.classList.toggle('is-dark');
+syncSettingsUI();
 
-  const isDark = document.body.classList.contains('is-dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+settingsBtn?.addEventListener('click', openSettings);
+closeBtn?.addEventListener('click', closeSettings);
+modalOverlay?.addEventListener('click', closeSettings);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal?.classList.contains('is-shown')) closeSettings();
+});
+
+themeBtn?.addEventListener('click', toggleTheme);
+
+themeToggle?.addEventListener('change', (e) => setTheme(e.target.checked));
+animationsToggle?.addEventListener('change', (e) => setAnimationsEnabled(e.target.checked));
+
+exportBtn?.addEventListener('click', () => {
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    transactions: DEMO_DATA.transactions,
+    budgets: DEMO_DATA.budgets,
+    reminders: DEMO_DATA.reminders,
+    settings: {
+      theme: document.body.classList.contains('is-dark') ? 'dark' : 'light',
+      animations: document.body.classList.contains('no-anim') ? 'off' : 'on',
+    },
+    // TODO: real state later (transactions, budgets, reminders)
+  };
+
+  downloadJson('finance-tracker-export.json', payload);
+  showToast('Exported JSON successfully', 'success');
 });

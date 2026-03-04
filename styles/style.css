@@ -80,6 +80,14 @@ body {
   position: relative;
 }
 
+body.no-anim *,
+body.no-anim *::before,
+body.no-anim *::after {
+  transition: none !important;
+  animation: none !important;
+  scroll-behavior: auto !important;
+}
+
 .container {
   padding: 15px 20px;
 }
