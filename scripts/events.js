@@ -122,6 +122,12 @@ if (savedAnimations === 'off') document.body.classList.add('no-anim');
 
 syncSettingsUI();
 
+const savedView = localStorage.getItem('activeView');
+const allowedViews = new Set(['dashboard', 'transactions', 'analytics', 'budgets']);
+if (allowedViews.has(savedView)) goToView(savedView);
+
+document.querySelector('.views')?.classList.add('is-ready');
+
 settingsBtn?.addEventListener('click', openSettings);
 closeBtn?.addEventListener('click', closeSettings);
 modalOverlay?.addEventListener('click', closeSettings);
@@ -155,7 +161,3 @@ exportBtn?.addEventListener('click', () => {
   downloadJson('finance-tracker-export.json', payload);
   showToast('Exported JSON successfully', 'success');
 });
-
-const savedView = localStorage.getItem('activeView');
-const allowedViews = new Set(['dashboard', 'transactions', 'analytics', 'budgets']);
-if (allowedViews.has(savedView)) goToView(savedView);

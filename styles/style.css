@@ -91,3 +91,11 @@ body.no-anim *::after {
 .container {
   padding: 15px 20px;
 }
+
+.views {
+  visibility: hidden;
+}
+
+.views.is-ready {
+  visibility: visible;
+}
