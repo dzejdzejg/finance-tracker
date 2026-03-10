@@ -23,12 +23,16 @@ export const toastEl = document.querySelector('.toast');
 export const categoryCtx = document.getElementById('chart-category')?.getContext('2d');
 export const timeCtx = document.getElementById('chart-time')?.getContext('2d');
 
+export const chartsCardsWrapper = document.querySelector('.charts__cards');
+export const chartsEmpty = document.querySelector('.charts__empty');
+
 /* Charts Analytics */
 export const categoryCtxAnalytics = document.getElementById('analytics-category')?.getContext('2d');
 export const timeCtxAnalytics = document.getElementById('analytics-month')?.getContext('2d');
 export const cashflowCtxAnalytics = document.getElementById('analytics-cashflow')?.getContext('2d');
 export const balanceCtxAnalytics = document.getElementById('analytics-balance')?.getContext('2d');
 
+export const analyticsGrid = document.querySelector('.analytics__grid');
 export const analyticsEmpty = document.querySelector('.analytics__empty');
 
 /* Crypto */
@@ -88,3 +92,7 @@ export const balanceTrendValue = document.querySelector('[data-trend="balance"]'
 export const incomeTrendBox = document.querySelector('[data-trend-box="income"]');
 export const expensesTrendBox = document.querySelector('[data-trend-box="expenses"]');
 export const balanceTrendBox = document.querySelector('[data-trend-box="balance"]');
+
+/* Descriptions */
+export const incomeDesc = document.getElementById('income-description');
+export const expenseDesc = document.getElementById('expenses-description');

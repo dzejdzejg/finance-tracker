@@ -1,4 +1,4 @@
-import { DEMO_DATA, CATEGORY_ICONS } from '../data/demoData.js';
+import { CATEGORY_ICONS } from '../data/demoData.js';
 import { dashboardHistoryList, dashboardHistoryEmpty, historySortBtn } from '../dom.js';
 
 let historySortOrder = 'newest';
@@ -25,8 +25,8 @@ function toggleHistorySort() {
   renderDashboardHistory();
 }
 
-export function renderDashboardHistory() {
-  const transactionItems = [...DEMO_DATA.transactions]
+export function renderDashboardHistory(transactions = []) {
+  const transactionItems = [...transactions]
     .sort((a, b) => {
       const aTime = a.date ? new Date(a.date).getTime() : 0;
       const bTime = b.date ? new Date(b.date).getTime() : 0;

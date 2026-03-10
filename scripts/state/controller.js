@@ -1,4 +1,4 @@
-import { reminderInput, reminderAddBtn, incomeForm, expensesForm, transactionsList, topbarBadge, newsletterInput, newsletterBtn, modal, startWithEmptyBtn } from '../dom.js';
+import { reminderInput, reminderAddBtn, incomeForm, expensesForm, transactionsList, topbarBadge, newsletterInput, newsletterBtn, modal, startWithEmptyBtn, incomeDesc, expenseDesc } from '../dom.js';
 import { appState, isDemo } from './state.js';
 import { showToast } from '../events.js';
 import { renderApp } from '../render/renderApp.js';
@@ -17,6 +17,19 @@ function updateDemoBadge() {
   topbarBadge.hidden = !isDemo();
 }
 
+/* === HOME PLACEHOLDERS === */
+function updateFormPlaceholders() {
+  const demoText = 'Change demo mode in settings to add transactions';
+  const userTextIncome = 'e.g. Monthly salary, freelance...';
+  const userTextExpense = 'e.g. Food, bills, entertainment...';
+  const userTextReminder = 'e.g. Pay rent on Friday...';
+
+  const demo = isDemo();
+  if (incomeDesc) incomeDesc.placeholder = demo ? demoText : userTextIncome;
+  if (expenseDesc) expenseDesc.placeholder = demo ? demoText : userTextExpense;
+  if (reminderInput) reminderInput.placeholder = demo ? demoText : userTextReminder;
+}
+
 /* === SWITCH TO USER MODE === */
 export function switchToUserMode() {
   appState.mode = 'user';
@@ -25,24 +38,35 @@ export function switchToUserMode() {
   appState.reminders = [];
 
   saveAll();
+  updateFormPlaceholders();
   updateDemoBadge();
   renderApp();
 
   modal?.classList.remove('is-shown');
+
+  if (startWithEmptyBtn) startWithEmptyBtn.textContent = 'Back to demo mode';
 
   showToast('User mode activated! Add your first transaction.', 'success');
 }
 
 /* === SWITCH BACK TO DEMO (future) === */
 export function switchToDemoMode() {
-  clearUserData();
+  const confirmed = window.confirm('This will clear all your data and show demo data. Are you sure to continue?');
+  if (!confirmed) return;
+
+  // clearUserData(); FUTURE
   appState.mode = 'demo';
   appState.transactions = [];
   appState.budgets = [];
   appState.reminders = [];
 
+  updateFormPlaceholders();
   updateDemoBadge();
   renderApp();
+
+  modal?.classList.remove('is-shown');
+
+  if (startWithEmptyBtn) startWithEmptyBtn.textContent = 'Start with empty data';
 }
 
 /* === NEWSLETTER === */
@@ -171,13 +195,12 @@ function handleStartWithEmptyData() {
 
   if (!confirmed) return;
   switchToUserMode();
-
-  startWithEmptyBtn.textContent = 'Back to demo mode';
 }
 
 /* === INIT === */
 export function initController() {
   loadState();
+  updateFormPlaceholders();
   updateDemoBadge();
 
   incomeForm?.addEventListener('submit', handleIncomeSubmit);
@@ -186,5 +209,11 @@ export function initController() {
   transactionsList?.addEventListener('click', handleTransactionsListClick);
   newsletterBtn?.addEventListener('click', handleNewsletterSubscribe);
 
-  startWithEmptyBtn?.addEventListener('click', handleStartWithEmptyData);
+  startWithEmptyBtn?.addEventListener('click', () => {
+    if (isDemo()) {
+      handleStartWithEmptyData();
+    } else {
+      switchToDemoMode();
+    }
+  });
 }

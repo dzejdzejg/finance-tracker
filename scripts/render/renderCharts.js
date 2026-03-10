@@ -1,4 +1,4 @@
-import { analyticsEmpty } from '../dom.js';
+import { analyticsEmpty, analyticsGrid, chartsCardsWrapper, chartsEmpty } from '../dom.js';
 import { initCharts, updateCategoryChart, updateTimeChart, updateCashflowChart, updateBalanceChart } from '../chart.js';
 import { aggregateExpensesByCategory } from '../state/aggregateExpensesByCategory.js';
 import { aggregateExpensesByMonth } from '../state/aggregateExpensesByMonth.js';
@@ -7,10 +7,13 @@ import { aggregateBalanceGrowth } from '../state/aggregateBalanceGrowth.js';
 
 export function renderCharts(transactions = []) {
   initCharts();
-
   const hasData = transactions.length > 0;
 
+  chartsEmpty.hidden = hasData;
   analyticsEmpty.hidden = hasData;
+
+  if (chartsCardsWrapper) chartsCardsWrapper.hidden = !hasData;
+  if (analyticsGrid) analyticsGrid.hidden = !hasData;
 
   if (!hasData) return;
 

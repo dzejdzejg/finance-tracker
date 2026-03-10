@@ -195,17 +195,19 @@
               </section>
 
               <section class="charts">
-                <div class="charts__card charts__card--category">
-                  <p class="charts__title">Expenses by Category</p>
-                  <canvas class="charts__canvas" id="chart-category"></canvas>
-                  <p class="charts__empty-category" hidden>No expenses yet</p>
-                </div>
+                <p class="charts__section--title">Overview</p>
+                <div class="charts__cards">
+                  <div class="charts__card charts__card--category">
+                    <p class="charts__title">Expenses by Category</p>
+                    <canvas class="charts__canvas" id="chart-category"></canvas>
+                  </div>
 
-                <div class="charts__card charts__card--time">
-                  <p class="charts__title">Spending Over Month</p>
-                  <canvas class="charts__canvas" id="chart-time"></canvas>
-                  <p class="charts__empty-time" hidden>No expenses yet</p>
+                  <div class="charts__card charts__card--time">
+                    <p class="charts__title">Spending Over Month</p>
+                    <canvas class="charts__canvas" id="chart-time"></canvas>
+                  </div>
                 </div>
+                <p class="charts__empty" hidden>No data yet. Add transactions to see charts.</p>
               </section>
 
               <section class="crypto">

@@ -1,4 +1,3 @@
-import { DEMO_DATA } from '../data/demoData.js';
 import { calcTotals } from '../state/calcTotals.js';
 import { incomeAmount, expensesAmount, balanceAmount, incomeTrendValue, expensesTrendValue, balanceTrendValue, incomeTrendBox, expensesTrendBox, balanceTrendBox } from '../dom.js';
 
@@ -21,8 +20,8 @@ function setTrend(boxEl, isUp) {
   icon.classList.toggle('fa-arrow-trend-down', !isUp);
 }
 
-export function renderTotals() {
-  const { income, expenses, balance } = calcTotals(DEMO_DATA.transactions);
+export function renderTotals(transactions = []) {
+  const { income, expenses, balance } = calcTotals(transactions);
 
   if (incomeAmount) incomeAmount.textContent = formatMoney(income);
   if (expensesAmount) expensesAmount.textContent = formatMoney(expenses);

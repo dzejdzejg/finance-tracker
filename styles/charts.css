@@ -2,6 +2,7 @@
   width: 100%;
   margin-top: 15px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: stretch;
   gap: 16px;
@@ -11,6 +12,18 @@
   backdrop-filter: blur(2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   overflow-x: hidden;
+}
+
+.charts__section--title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.charts__cards {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
 }
 
 .charts__card {
@@ -44,6 +57,17 @@
   display: none;
 }
 
+.charts__cards[hidden] {
+  display: none;
+}
+
+.charts__empty {
+  margin: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #6b7280;
+}
 @media (min-width: 768px) {
   .charts__card {
     flex: 1 1 0;
@@ -51,5 +75,11 @@
 
   .charts__card--time {
     display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .charts__empty {
+    font-size: 1.1rem;
   }
 }

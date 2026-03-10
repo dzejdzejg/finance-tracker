@@ -1,8 +1,7 @@
-import { DEMO_DATA } from '../data/demoData.js';
 import { remindersList, remindersEmpty } from '../dom.js';
 
-export function renderRemindersList() {
-  const reminderItems = DEMO_DATA.reminders;
+export function renderRemindersList(reminders = []) {
+  const reminderItems = reminders;
 
   if (!reminderItems.length) {
     remindersList.innerHTML = '';

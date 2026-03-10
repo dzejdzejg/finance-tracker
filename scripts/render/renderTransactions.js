@@ -1,4 +1,4 @@
-import { DEMO_DATA, CATEGORY_ICONS } from '../data/demoData.js';
+import { CATEGORY_ICONS } from '../data/demoData.js';
 import { transactionsList, transactionsListEmpty, transactionsSearch, transactionsFilterType, transactionsFilterCategory, transactionsFilterFrom, transactionsFilterTo } from '../dom.js';
 
 function formatDateLabel(iso) {
@@ -14,6 +14,8 @@ function norm(v) {
     .toLowerCase();
 }
 
+let _transactions = [];
+
 function getFilteredTransactions() {
   const typeSelected = norm(transactionsFilterType.value);
   const categorySelected = norm(transactionsFilterCategory.value);
@@ -26,7 +28,7 @@ function getFilteredTransactions() {
 
   const toTime = toValue ? new Date(`${toValue}T23:59:59.999`).getTime() : null;
 
-  return DEMO_DATA.transactions.filter((t) => {
+  return _transactions.filter((t) => {
     const tType = norm(t.type);
     const tCategory = norm(t.category);
     const tDescr = norm(t.description);
@@ -47,7 +49,9 @@ function getFilteredTransactions() {
   });
 }
 
-export function renderTransactionsList() {
+export function renderTransactionsList(transactions) {
+  if (transactions !== undefined) _transactions = transactions;
+
   const transactionItems = getFilteredTransactions().sort((a, b) => {
     const aTime = a.date ? new Date(a.date).getTime() : 0;
     const bTime = b.date ? new Date(b.date).getTime() : 0;

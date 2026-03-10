@@ -1,9 +1,8 @@
-import { DEMO_DATA } from '../data/demoData.js';
 import { budgetsList, budgetsEmpty, budgetsAddBtn, budgetsModal, budgetsForm } from '../dom.js';
 import { guardDemo } from '../state/controller.js';
 
-export function renderBudgets() {
-  const budgetsItems = DEMO_DATA.budgets;
+export function renderBudgets(budgets = []) {
+  const budgetsItems = budgets;
 
   if (!budgetsItems.length) {
     budgetsList.innerHTML = '';

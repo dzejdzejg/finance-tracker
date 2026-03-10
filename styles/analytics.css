@@ -53,6 +53,10 @@
   gap: 16px;
 }
 
+.analytics__grid[hidden] {
+  display: none;
+}
+
 .analytics__card {
   min-width: 0;
   padding: 16px;
@@ -81,6 +85,14 @@
   display: block;
 }
 
+.analytics__empty {
+  margin-top: 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #6b7280;
+}
+
 @media (min-width: 768px) {
   .analytics__filters {
     grid-template-columns: 240px 240px;
@@ -104,6 +116,10 @@
   }
 
   .analytics__card-title {
+    font-size: 1.25rem;
+  }
+
+  .analytics__empty {
     font-size: 1.25rem;
   }
 }
