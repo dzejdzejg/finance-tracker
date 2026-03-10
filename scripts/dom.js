@@ -4,6 +4,7 @@ export const settingsBtn = document.querySelector('.topbar__settings');
 export const modal = document.querySelector('.modal');
 export const modalOverlay = document.querySelector('.modal__overlay');
 export const closeBtn = document.querySelector('.modal__close');
+export const startWithEmptyBtn = document.querySelector('.modal__demo-btn');
 export const topbarBadge = document.querySelector('.topbar__badge');
 
 export const themeToggle = document.getElementById('toggle-theme');

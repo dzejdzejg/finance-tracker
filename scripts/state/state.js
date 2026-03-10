@@ -1,3 +1,8 @@
-export const appMode = {
-  demo: true,
+export const appState = {
+  mode: 'demo',
+  transactions: [],
+  budgets: [],
+  reminders: [],
 };
+
+export const isDemo = () => appState.mode === 'demo';
