@@ -50,7 +50,7 @@ function getFilteredTransactions() {
 }
 
 export function renderTransactionsList(transactions) {
-  if (transactions !== undefined) _transactions = transactions;
+  if (Array.isArray(transactions)) _transactions = transactions;
 
   const transactionItems = getFilteredTransactions().sort((a, b) => {
     const aTime = a.date ? new Date(a.date).getTime() : 0;
@@ -99,7 +99,11 @@ export function renderTransactionsList(transactions) {
     .join('');
 }
 
-export function renderFilterCategoriesByType() {
+let _filtersInitialized = false;
+
+export function renderFilterCategoriesByType(transactions) {
+  if (Array.isArray(transactions)) _transactions = transactions;
+
   const allOptions = `
     <option value="all">All categories</option>
     <optgroup label="Income">
@@ -154,6 +158,9 @@ export function renderFilterCategoriesByType() {
 
   updateCategoryOptions();
   renderTransactionsList();
+
+  if (_filtersInitialized) return;
+  _filtersInitialized = true;
 
   transactionsSearch.addEventListener('input', renderTransactionsList);
   transactionsFilterType.addEventListener('change', updateCategoryOptions);

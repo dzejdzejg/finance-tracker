@@ -20,8 +20,8 @@ function updateDemoBadge() {
 /* === HOME PLACEHOLDERS === */
 function updateFormPlaceholders() {
   const demoText = 'Change demo mode in settings to add transactions';
-  const userTextIncome = 'e.g. Monthly salary, freelance...';
-  const userTextExpense = 'e.g. Food, bills, entertainment...';
+  const userTextIncome = 'e.g. Monthly salary, freelance work...';
+  const userTextExpense = 'e.g. Groceries, new shoes, netflix...';
   const userTextReminder = 'e.g. Pay rent on Friday...';
 
   const demo = isDemo();
@@ -60,6 +60,7 @@ export function switchToDemoMode() {
   appState.budgets = [];
   appState.reminders = [];
 
+  saveAll();
   updateFormPlaceholders();
   updateDemoBadge();
   renderApp();
@@ -87,7 +88,6 @@ function handleNewsletterSubscribe() {
 
   if (guardDemo()) return;
 
-  // user mode (TODO later)
   showToast('Subscribed!', 'success');
   newsletterInput.value = '';
 }

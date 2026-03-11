@@ -22,7 +22,7 @@ export function renderApp() {
 
   renderDashboardHistory(data.transactions);
   renderTransactionsList(data.transactions);
-  renderFilterCategoriesByType();
+  renderFilterCategoriesByType(data.transactions);
   renderTotals(data.transactions);
   renderCharts(data.transactions);
   renderRemindersList(data.reminders);

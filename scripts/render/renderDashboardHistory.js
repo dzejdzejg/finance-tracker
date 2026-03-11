@@ -25,8 +25,12 @@ function toggleHistorySort() {
   renderDashboardHistory();
 }
 
-export function renderDashboardHistory(transactions = []) {
-  const transactionItems = [...transactions]
+let _transactions = [];
+
+export function renderDashboardHistory(transactions) {
+  if (transactions !== undefined) _transactions = transactions;
+
+  const transactionItems = [..._transactions]
     .sort((a, b) => {
       const aTime = a.date ? new Date(a.date).getTime() : 0;
       const bTime = b.date ? new Date(b.date).getTime() : 0;
