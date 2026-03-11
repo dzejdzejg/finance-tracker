@@ -1,5 +1,5 @@
 import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn, themeToggle, animationsToggle, exportBtn, analyticsCategory, analyticsRange } from './dom.js';
-import { DEMO_DATA } from './data/demoData.js';
+import { getActiveData } from './render/renderApp.js';
 import { resizeCharts } from './chart.js';
 
 function openSettings() {
@@ -146,16 +146,17 @@ animationsToggle?.addEventListener('change', (e) => setAnimationsEnabled(e.targe
 });
 
 exportBtn?.addEventListener('click', () => {
+  const data = getActiveData();
+
   const payload = {
     exportedAt: new Date().toISOString(),
-    transactions: DEMO_DATA.transactions,
-    budgets: DEMO_DATA.budgets,
-    reminders: DEMO_DATA.reminders,
+    transactions: data.transactions,
+    budgets: data.budgets,
+    reminders: data.reminders,
     settings: {
       theme: document.body.classList.contains('is-dark') ? 'dark' : 'light',
       animations: document.body.classList.contains('no-anim') ? 'off' : 'on',
     },
-    // TODO: real state later (transactions, budgets, reminders)
   };
 
   downloadJson('finance-tracker-export.json', payload);
