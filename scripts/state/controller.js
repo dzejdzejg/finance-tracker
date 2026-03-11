@@ -203,6 +203,10 @@ export function initController() {
   updateFormPlaceholders();
   updateDemoBadge();
 
+  if (startWithEmptyBtn) {
+    startWithEmptyBtn.textContent = isDemo() ? 'Start with empty data' : 'Back to demo mode';
+  }
+
   incomeForm?.addEventListener('submit', handleIncomeSubmit);
   expensesForm?.addEventListener('submit', handleExpensesSubmit);
   reminderAddBtn?.addEventListener('click', handleReminderAdd);

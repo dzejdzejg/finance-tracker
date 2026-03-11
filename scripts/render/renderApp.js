@@ -22,11 +22,11 @@ export function renderApp() {
 
   renderDashboardHistory(data.transactions);
   renderTransactionsList(data.transactions);
-  renderFilterCategoriesByType(data.transactions);
+  renderFilterCategoriesByType();
   renderTotals(data.transactions);
   renderCharts(data.transactions);
-  renderRemindersList(data.transactions);
-  renderBudgets(data.transactions);
+  renderRemindersList(data.reminders);
+  renderBudgets(data.budgets);
 }
 
 export function initApp() {
