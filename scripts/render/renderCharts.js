@@ -7,7 +7,7 @@ import { aggregateBalanceGrowth } from '../state/aggregateBalanceGrowth.js';
 
 export function renderCharts(transactions = []) {
   initCharts();
-  const hasData = transactions.length > 0;
+  const hasData = transactions.some((t) => t.type === 'expense');
 
   chartsEmpty.hidden = hasData;
   analyticsEmpty.hidden = hasData;

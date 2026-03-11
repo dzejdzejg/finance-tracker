@@ -26,7 +26,7 @@ export function renderApp() {
   renderTotals(data.transactions);
   renderCharts(data.transactions);
   renderRemindersList(data.reminders);
-  renderBudgets(data.budgets);
+  renderBudgets(data.budgets, data.transactions);
 }
 
 export function initApp() {

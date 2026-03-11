@@ -141,7 +141,7 @@
   max-width: 520px;
   width: calc(100% - 32px);
   margin: 80px auto;
-  background: var(--text-secondary);
+  background: var(--bg-modal);
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -230,6 +230,7 @@
 }
 
 .budget-modal__label {
+  color: var(--text-primary);
   font-size: 0.9rem;
   opacity: 0.8;
 }
@@ -251,13 +252,14 @@
 }
 
 .budget-modal__btn--ghost {
-  background: transparent;
+  background: rgba(255, 0, 0, 0.4);
   border-color: rgba(17, 24, 39, 0.15);
+  color: #fff;
 }
 
 .budget-modal__btn--primary {
   background: linear-gradient(135deg, #6366f1, #4f46e5);
-  color: var(--text-secondary);
+  color: #fff;
 }
 
 @media (min-width: 768px) {
