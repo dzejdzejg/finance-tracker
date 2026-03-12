@@ -96,3 +96,7 @@ export const balanceTrendBox = document.querySelector('[data-trend-box="balance"
 /* Descriptions */
 export const incomeDesc = document.getElementById('income-description');
 export const expenseDesc = document.getElementById('expenses-description');
+
+/* Transactions badge */
+export const navBadgeTransactions = document.getElementById('nav-badge-transactions');
+export const navBadgeTransactionsMobile = document.getElementById('nav-badge-transactions-mobile');

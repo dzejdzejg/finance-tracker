@@ -5,6 +5,7 @@ import { renderTransactionsList, renderFilterCategoriesByType } from './renderTr
 import { renderTotals } from './renderTotals.js';
 import { renderCharts } from './renderCharts.js';
 import { renderCrypto } from './renderCrypto.js';
+import { renderNavBadges } from './renderTransactionsBadge.js';
 import { renderRemindersList } from './renderReminders.js';
 import { renderBudgets, initBudgetsModal } from './renderBudgets.js';
 
@@ -21,6 +22,7 @@ export function renderApp() {
   const data = getActiveData();
 
   renderDashboardHistory(data.transactions);
+  renderNavBadges(data.transactions);
   renderTransactionsList(data.transactions);
   renderFilterCategoriesByType(data.transactions);
   renderTotals(data.transactions);

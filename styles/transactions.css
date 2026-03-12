@@ -298,6 +298,11 @@
     grid-row: 1;
     min-width: 140px;
   }
+
+  .transactions__edit-save,
+  .transactions__edit-cancel {
+    padding: 0 15px;
+  }
 }
 
 @media (min-width: 1024px) {

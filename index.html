@@ -71,7 +71,10 @@
               <button class="sidebar__link" type="button" data-go="dashboard" aria-current="page">Home</button>
             </li>
             <li class="sidebar__list-item">
-              <button class="sidebar__link" type="button" data-go="transactions">Transactions</button>
+              <button class="sidebar__link" type="button" data-go="transactions">
+                Transactions
+                <span class="nav__badge" id="nav-badge-transactions" hidden>0</span>
+              </button>
             </li>
             <li class="sidebar__list-item">
               <button class="sidebar__link" type="button" data-go="analytics">Analytics</button>
@@ -342,8 +345,11 @@
       </button>
 
       <button class="mobile-nav__link" type="button" data-go="transactions">
-        <i class="fa-solid fa-receipt"></i>
-        <span class="mobile-nav__label">Transactions</span>
+        <div class="mobile-nav__content">
+          <i class="fa-solid fa-receipt"></i>
+          <span class="mobile-nav__label">Transactions</span>
+        </div>
+        <span class="nav__badge" id="nav-badge-transactions-mobile" hidden>0</span>
       </button>
 
       <button class="mobile-nav__link" type="button" data-go="analytics">

@@ -300,10 +300,13 @@ function handleTransactionsListClick(e) {
   if (!id) return;
 
   if (deleteBtn) {
+    const confirmed = window.confirm('Are you sure you want to delete this transaction?');
+    if (!confirmed) return;
+
     appState.transactions = appState.transactions.filter((t) => t.id !== id);
     saveAll();
     renderApp();
-    showToast('Transaction deleted.', 'success');
+    showToast('Transaction deleted.', 'info');
   }
 
   if (editBtn) {
