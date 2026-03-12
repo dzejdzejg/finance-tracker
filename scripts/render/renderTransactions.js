@@ -49,6 +49,37 @@ function getFilteredTransactions() {
   });
 }
 
+export function renderEditForm(id) {
+  const t = _transactions.find((t) => t.id === id);
+  if (!t) return;
+
+  const item = transactionsList.querySelector(`[data-id="${id}"]`);
+  if (!item) return;
+
+  item.innerHTML = `
+    <div class="transactions__edit-form">
+      <input class="transactions__edit-input" type="text" name="description" value="${t.description ?? ''}" placeholder="Description" />
+      <input class="transactions__edit-input" type="number" name="amount" value="${t.amount}" placeholder="Amount" min="0" step="0.01" />
+      <input class="transactions__edit-input" type="date" name="date" value="${t.date ?? ''}" />
+      <div class="transactions__edit-actions">
+        <button class="transactions__edit-save" data-id="${id}">Save</button>
+        <button class="transactions__edit-cancel" data-id="${id}">Cancel</button>
+      </div>
+    </div>
+  `;
+
+  item.addEventListener(
+    'keydown',
+    (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        item.querySelector('.transactions__edit-save')?.click();
+      }
+    },
+    { once: true },
+  );
+}
+
 export function renderTransactionsList(transactions) {
   if (Array.isArray(transactions)) _transactions = transactions;
 

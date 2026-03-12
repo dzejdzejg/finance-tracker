@@ -3,6 +3,7 @@ import { appState, isDemo } from './state.js';
 import { showToast } from '../events.js';
 import { renderApp } from '../render/renderApp.js';
 import { loadState, saveAll } from '../data/storage.js';
+import { renderEditForm } from '../render/renderTransactions.js';
 
 export function guardDemo() {
   if (isDemo()) {
@@ -169,8 +170,46 @@ function handleTransactionsListClick(e) {
 
   const editBtn = target.closest('.transactions__edit');
   const deleteBtn = target.closest('.transactions__delete');
+  const saveBtn = target.closest('.transactions__edit-save');
+  const cancelBtn = target.closest('.transactions__edit-cancel');
 
-  if (!editBtn && !deleteBtn) return;
+  if (!editBtn && !deleteBtn && !saveBtn && !cancelBtn) return;
+
+  if (cancelBtn) {
+    renderApp();
+    return;
+  }
+
+  if (saveBtn) {
+    const id = saveBtn.dataset.id;
+    const item = transactionsList.querySelector(`[data-id="${id}"]`);
+    if (!item) return;
+
+    const description = item.querySelector('[name="description"]').value.trim();
+    const amount = parseFloat(item.querySelector('[name="amount"]').value);
+    const date = item.querySelector('[name="date"]').value;
+
+    if (!amount || !date) {
+      showToast('Amount and date are required.', 'error');
+      return;
+    }
+
+    const idx = appState.transactions.findIndex((t) => t.id === id);
+    if (idx === -1) return;
+
+    appState.transactions[idx] = {
+      ...appState.transactions[idx],
+      description,
+      amount,
+      date,
+    };
+
+    saveAll();
+    renderApp();
+    showToast('Transaction updated', 'success');
+    return;
+  }
+
   if (guardDemo()) return;
 
   const item = target.closest('[data-id]');
@@ -185,7 +224,7 @@ function handleTransactionsListClick(e) {
   }
 
   if (editBtn) {
-    // inline edit future
+    renderEditForm(id);
   }
 }
 

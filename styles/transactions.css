@@ -161,6 +161,95 @@
   color: #6b7280;
 }
 
+/* === INLINE EDIT FORM === */
+.transactions__item:has(.transactions__edit-form) {
+  grid-template-columns: 1fr;
+}
+
+.transactions__edit-form {
+  display: grid;
+  gap: 8px;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.transactions__edit-input {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-transactions-item);
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.transactions__edit-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+.transactions__edit-input[name='description'] {
+  grid-column: 1/-1;
+  grid-row: 1;
+}
+
+.transactions__edit-input[name='amount'] {
+  grid-column: 1/2;
+  grid-row: 2;
+}
+
+.transactions__edit-input[name='date'] {
+  grid-column: 2/3;
+  grid-row: 2;
+}
+
+.transactions__edit-actions {
+  display: flex;
+  gap: 8px;
+  grid-column: 1/-1;
+  grid-row: 3;
+}
+
+.transactions__edit-save,
+.transactions__edit-cancel {
+  flex: 1;
+  min-height: 38px;
+  border-radius: 10px;
+  border: none;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+
+.transactions__edit-save {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.transactions__edit-save:hover {
+  background: #4338ca;
+}
+
+.transactions__edit-cancel {
+  background: rgba(220, 38, 38, 0.18);
+  color: var(--text-primary);
+}
+
+.transactions__edit-save:active,
+.transactions__edit-cancel:active {
+  transform: scale(0.96);
+}
+
 @media (min-width: 768px) {
   .transactions__filters {
     grid-template-columns: repeat(4, minmax(140px, 1fr));
@@ -179,6 +268,32 @@
     grid-column: 3;
     grid-row: 1;
   }
+
+  .transactions__edit-form {
+    grid-template-columns: 1fr 0.75fr 0.75fr auto;
+    grid-template-rows: auto;
+  }
+
+  .transactions__edit-input[name='description'] {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+
+  .transactions__edit-input[name='amount'] {
+    grid-column: 2 / 3;
+    grid-row: 1;
+  }
+
+  .transactions__edit-input[name='date'] {
+    grid-column: 3 / 4;
+    grid-row: 1;
+  }
+
+  .transactions__edit-actions {
+    grid-column: 4 / 5;
+    grid-row: 1;
+    min-width: 140px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -196,5 +311,10 @@
 
   .transactions__empty {
     font-size: 1.25rem;
+  }
+
+  .transactions__edit-form {
+    grid-template-columns: 1fr 0.5fr 0.5fr auto;
+    grid-template-rows: auto;
   }
 }
