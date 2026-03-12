@@ -180,7 +180,20 @@ function handleReminderAdd() {
   if (guardDemo()) return;
 
   const value = reminderInput?.value.trim();
-  if (!value) return;
+  if (!value) {
+    showToast('Please enter a reminder.', 'error');
+    return;
+  }
+
+  if (value.length < 3) {
+    showToast('Reminder must be at least 3 characters.', 'error');
+    return;
+  }
+
+  if (value.length > 100) {
+    showToast('Reminder must be under 100 characters.', 'error');
+    return;
+  }
 
   const reminder = {
     id: `r_${Date.now()}`,
@@ -325,6 +338,12 @@ export function initController() {
   newsletterBtn?.addEventListener('click', handleNewsletterSubscribe);
   remindersList?.addEventListener('click', handleRemindersListClick);
   budgetsList?.addEventListener('click', handleBudgetsListClick);
+  reminderInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleReminderAdd();
+    }
+  });
 
   startWithEmptyBtn?.addEventListener('click', () => {
     if (isDemo()) {
