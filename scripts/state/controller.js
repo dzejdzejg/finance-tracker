@@ -55,7 +55,6 @@ export function switchToDemoMode() {
   const confirmed = window.confirm('This will clear all your data and show demo data. Are you sure to continue?');
   if (!confirmed) return;
 
-  // clearUserData(); FUTURE
   appState.mode = 'demo';
   appState.transactions = [];
   appState.budgets = [];
@@ -101,10 +100,16 @@ function handleIncomeSubmit(e) {
   const form = e.target;
   const data = Object.fromEntries(new FormData(form));
 
+  const dataAmount = parseFloat(data.amount);
+  if (!dataAmount || dataAmount <= 0) {
+    showToast('Amount must be greater than 0.', 'error');
+    return;
+  }
+
   const transaction = {
     id: `t_${Date.now()}`,
     type: 'income',
-    amount: parseFloat(data.amount),
+    amount: dataAmount,
     date: data.date,
     category: data.category,
     description: data.description?.trim() ?? '',
@@ -126,10 +131,16 @@ function handleExpensesSubmit(e) {
   const form = e.target;
   const data = Object.fromEntries(new FormData(form));
 
+  const dataAmount = parseFloat(data.amount);
+  if (!dataAmount || dataAmount <= 0) {
+    showToast('Amount must be greater than 0.', 'error');
+    return;
+  }
+
   const transaction = {
     id: `t_${Date.now()}`,
     type: 'expense',
-    amount: parseFloat(data.amount),
+    amount: dataAmount,
     date: data.date,
     category: data.category,
     description: data.description?.trim() ?? '',
