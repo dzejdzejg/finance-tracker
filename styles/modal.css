@@ -200,11 +200,11 @@
 }
 
 .modal__demo-btn--danger {
-  background: #dc2626;
+  background: #e95959;
 }
 
 .modal__demo-btn--danger:hover {
-  background: #cb1f1f;
+  background: #e64949;
   box-shadow: 0 10px 22px rgba(220, 38, 38, 0.35);
 }
 

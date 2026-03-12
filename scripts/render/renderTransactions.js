@@ -98,13 +98,13 @@ export function renderTransactionsList(transactions) {
   transactionsListEmpty.hidden = true;
 
   transactionsList.innerHTML = transactionItems
-    .map((t) => {
+    .map((t, i) => {
       const isExpense = t.type === 'expense';
       const amountClass = isExpense ? 'transactions__amount--expense' : 'transactions__amount--income';
       const iconClass = CATEGORY_ICONS?.[t.category] ?? 'fa-receipt';
 
       return `
-      <li class="transactions__item" data-id="${t.id}">
+      <li class="transactions__item transaction__item--animate" data-id="${t.id}" style="animation-delay: ${i * 0.05}s">
         <span class="transactions__icon"><i class="fa-solid ${iconClass}"></i></span>
 
         <div class="transactions__info">

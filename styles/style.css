@@ -83,8 +83,8 @@ body {
 body.no-anim *,
 body.no-anim *::before,
 body.no-anim *::after {
-  transition: none !important;
-  animation: none !important;
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
   scroll-behavior: auto !important;
 }
 

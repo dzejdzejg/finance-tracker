@@ -74,6 +74,10 @@
   box-shadow: 0 10px 22px rgba(17, 24, 39, 0.1);
 }
 
+.transaction__item--animate {
+  animation: slideIn 0.25s ease both;
+}
+
 .transactions__icon {
   display: grid;
   place-items: center;
@@ -325,5 +329,16 @@
   .transactions__edit-form {
     grid-template-columns: 1fr 0.5fr 0.5fr auto;
     grid-template-rows: auto;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

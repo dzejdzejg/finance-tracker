@@ -103,6 +103,10 @@
   border-radius: 10px;
 }
 
+.history__transaction--animate {
+  animation: slideIn 0.25s ease both;
+}
+
 .history__name {
   min-width: 0;
   color: var(--text-primary);
@@ -364,5 +368,16 @@
   .history__empty,
   .history__empty-reminders {
     font-size: 1.1rem;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

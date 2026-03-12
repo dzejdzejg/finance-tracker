@@ -55,7 +55,7 @@ export function renderDashboardHistory(transactions) {
       const iconClass = CATEGORY_ICONS?.[t.category] ?? 'fa-receipt';
 
       return `
-      <li class="history__transaction" data-id="${t.id}">
+      <li class="history__transaction history__transaction--animate" data-id="${t.id}">
         <span class="history__icon">
           <i class="fa-solid ${iconClass}"></i>
         </span>
