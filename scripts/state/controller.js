@@ -1,4 +1,19 @@
-import { reminderInput, reminderAddBtn, incomeForm, expensesForm, transactionsList, topbarBadge, newsletterInput, newsletterBtn, modal, startWithEmptyBtn, incomeDesc, expenseDesc } from '../dom.js';
+import {
+  reminderInput,
+  reminderAddBtn,
+  incomeForm,
+  expensesForm,
+  transactionsList,
+  topbarBadge,
+  newsletterInput,
+  newsletterBtn,
+  modal,
+  startWithEmptyBtn,
+  incomeDesc,
+  expenseDesc,
+  remindersList,
+  budgetsList,
+} from '../dom.js';
 import { appState, isDemo } from './state.js';
 import { showToast } from '../events.js';
 import { renderApp } from '../render/renderApp.js';
@@ -45,7 +60,10 @@ export function switchToUserMode() {
 
   modal?.classList.remove('is-shown');
 
-  if (startWithEmptyBtn) startWithEmptyBtn.textContent = 'Back to demo mode';
+  if (startWithEmptyBtn) {
+    startWithEmptyBtn.textContent = 'Back to demo mode';
+    startWithEmptyBtn.classList.add('modal__demo-btn--danger');
+  }
 
   showToast('User mode activated! Add your first transaction.', 'success');
 }
@@ -67,7 +85,10 @@ export function switchToDemoMode() {
 
   modal?.classList.remove('is-shown');
 
-  if (startWithEmptyBtn) startWithEmptyBtn.textContent = 'Start with empty data';
+  if (startWithEmptyBtn) {
+    startWithEmptyBtn.textContent = 'Start with empty data';
+    startWithEmptyBtn.classList.remove('modal__demo-btn--danger');
+  }
 }
 
 /* === NEWSLETTER === */
@@ -174,6 +195,44 @@ function handleReminderAdd() {
   showToast('Reminder added!', 'success');
 }
 
+/* === REMINDERS LIST (delete) === */
+function handleRemindersListClick(e) {
+  const target = e.target instanceof HTMLElement ? e.target : null;
+  if (!target) return;
+
+  const deleteBtn = target.closest('.history__reminder-delete');
+  if (!deleteBtn) return;
+  if (guardDemo()) return;
+
+  const item = target.closest('[data-id]');
+  const id = item?.dataset.id;
+  if (!id) return;
+
+  appState.reminders = appState.reminders.filter((r) => r.id !== id);
+  saveAll();
+  renderApp();
+  showToast('Reminder deleted.', 'success');
+}
+
+/* === BUDGETS LIST (delete) === */
+function handleBudgetsListClick(e) {
+  const target = e.target instanceof HTMLElement ? e.target : null;
+  if (!target) return;
+
+  const deleteBtn = target.closest('.budgets__delete');
+  if (!deleteBtn) return;
+  if (guardDemo()) return;
+
+  const item = target.closest('[data-id]');
+  const id = item?.dataset.id;
+  if (!id) return;
+
+  appState.budgets = appState.budgets.filter((b) => b.id !== id);
+  saveAll();
+  renderApp();
+  showToast('Budget deleted.', 'success');
+}
+
 /* === TRANSACTIONS LIST (edit/delete) === */
 function handleTransactionsListClick(e) {
   const target = e.target instanceof HTMLElement ? e.target : null;
@@ -254,7 +313,9 @@ export function initController() {
   updateDemoBadge();
 
   if (startWithEmptyBtn) {
-    startWithEmptyBtn.textContent = isDemo() ? 'Start with empty data' : 'Back to demo mode';
+    const demo = isDemo();
+    startWithEmptyBtn.textContent = demo ? 'Start with empty data' : 'Back to demo mode';
+    if (!demo) startWithEmptyBtn.classList.add('modal__demo-btn--danger');
   }
 
   incomeForm?.addEventListener('submit', handleIncomeSubmit);
@@ -262,6 +323,8 @@ export function initController() {
   reminderAddBtn?.addEventListener('click', handleReminderAdd);
   transactionsList?.addEventListener('click', handleTransactionsListClick);
   newsletterBtn?.addEventListener('click', handleNewsletterSubscribe);
+  remindersList?.addEventListener('click', handleRemindersListClick);
+  budgetsList?.addEventListener('click', handleBudgetsListClick);
 
   startWithEmptyBtn?.addEventListener('click', () => {
     if (isDemo()) {

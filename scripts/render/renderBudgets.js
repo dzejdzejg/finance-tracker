@@ -54,7 +54,7 @@ export function renderBudgets(budgets = [], transactions = []) {
       const { spent, progress } = calcBudgetProgress(b, transactions);
 
       return `
-      <li class="budgets__item">
+      <li class="budgets__item" data-id="${b.id}">
         <div class="budgets__info">
           <span class="budgets__category">${b.category}</span>
           <span class="budgets__limit">$${b.limit} / ${b.period}</span>
@@ -64,7 +64,12 @@ export function renderBudgets(budgets = [], transactions = []) {
           <div class="budgets__progress-bar" style="width: ${progress}%"></div>
         </div>
 
-        <span class="budgets__spent">$${spent.toFixed(2)} spent</span>
+        <div class="budgets__footer">
+          <span class="budgets__spent">$${spent.toFixed(2)} spent</span>
+          <button class="budgets__delete" aria-label="Delete budget">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
       </li>
     `;
     })

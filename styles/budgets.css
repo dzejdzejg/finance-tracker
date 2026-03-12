@@ -103,11 +103,38 @@
   transition: width 0.3s ease;
 }
 
+.budgets__footer {
+  display: flex;
+  align-items: center;
+}
+
 .budgets__spent {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
   opacity: 0.85;
+}
+
+.budgets__delete {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.budgets__delete:hover {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
 }
 
 .budgets__empty {
@@ -119,7 +146,6 @@
 }
 
 /* Budgets modal */
-/* === Budget Modal (separate namespace) === */
 .budget-modal[hidden] {
   display: none;
 }

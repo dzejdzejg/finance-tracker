@@ -18,7 +18,10 @@ export function renderRemindersList(reminders = []) {
               <span class="history__reminder-icon">
                 <i class="fa-regular fa-lightbulb"></i>
               </span>
-              <span class="history__reminder-text">${r.name}</span>
+              <span class="history__reminder-text" title="${r.name}">${r.name}</span>
+              <button class="history__reminder-delete" aria-label="Delete reminder">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
             </li>
       `;
     })

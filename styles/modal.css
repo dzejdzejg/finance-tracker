@@ -199,6 +199,15 @@
   box-shadow: 0 10px 22px rgba(99, 102, 241, 0.35);
 }
 
+.modal__demo-btn--danger {
+  background: #dc2626;
+}
+
+.modal__demo-btn--danger:hover {
+  background: #cb1f1f;
+  box-shadow: 0 10px 22px rgba(220, 38, 38, 0.35);
+}
+
 .modal__demo-btn:active {
   transform: scale(0.97);
 }
