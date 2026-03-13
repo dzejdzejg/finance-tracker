@@ -1,6 +1,8 @@
 import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn, themeToggle, animationsToggle, exportBtn, analyticsCategory, analyticsRange } from './dom.js';
 import { getActiveData } from './render/renderApp.js';
 import { resizeCharts } from './chart.js';
+import { isDemo } from './state/state.js';
+import { renderAnalyticsWithFilters } from './render/renderCharts.js';
 
 function openSettings() {
   modal?.classList.add('is-shown');
@@ -142,7 +144,14 @@ themeToggle?.addEventListener('change', (e) => setTheme(e.target.checked));
 animationsToggle?.addEventListener('change', (e) => setAnimationsEnabled(e.target.checked));
 
 [analyticsRange, analyticsCategory].forEach((el) => {
-  el?.addEventListener('change', () => showToast('Analytics filters will be available in user mode.', 'info'));
+  el?.addEventListener('change', () => {
+    if (isDemo()) {
+      showToast('Analytics filters will be available in user mode.', 'info');
+      return;
+    }
+
+    renderAnalyticsWithFilters();
+  });
 });
 
 exportBtn?.addEventListener('click', () => {
