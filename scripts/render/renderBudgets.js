@@ -44,6 +44,11 @@ export function renderBudgets(budgets = [], transactions = []) {
   if (!budgetsItems.length) {
     budgetsList.innerHTML = '';
     budgetsEmpty.hidden = false;
+    budgetsEmpty.innerHTML = `
+      <div class="budgets__empty-icon"><i class="fa-solid fa-wallet"></i></div>
+      <p class="budgets__empty-title">No budgets yet</p>
+      <p class="budgets__empty-subtitle">Click Add Budget to get started</p>
+    `;
     return;
   }
 

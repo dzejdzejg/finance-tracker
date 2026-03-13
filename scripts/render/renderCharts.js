@@ -12,6 +12,19 @@ export function renderCharts(transactions = []) {
   chartsEmpty.hidden = hasData;
   analyticsEmpty.hidden = hasData;
 
+  if (!hasData) {
+    chartsEmpty.innerHTML = `
+    <div class="charts__empty-icon"><i class="fa-solid fa-chart-pie"></i></div>
+    <p class="charts__empty-title">No data yet</p>
+    <p class="charts__empty-subtitle">Add expenses to see charts</p>
+  `;
+    analyticsEmpty.innerHTML = `
+    <div class="analytics__empty-icon"><i class="fa-solid fa-chart-line"></i></div>
+    <p class="analytics__empty-title">No data yet</p>
+    <p class="analytics__empty-subtitle">Add transactions to see analytics</p>
+  `;
+  }
+
   if (chartsCardsWrapper) chartsCardsWrapper.hidden = !hasData;
   if (analyticsGrid) analyticsGrid.hidden = !hasData;
 

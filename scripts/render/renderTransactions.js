@@ -92,6 +92,11 @@ export function renderTransactionsList(transactions) {
   if (!transactionItems.length) {
     transactionsList.innerHTML = '';
     transactionsListEmpty.hidden = false;
+    transactionsListEmpty.innerHTML = `
+      <div class="transactions__empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <p class="transactions__empty-title">No transactions found</p>
+      <p class="transactions__empty-subtitle">Try adjusting your filters</p>
+    `
     return;
   }
 

@@ -42,6 +42,11 @@ export function renderDashboardHistory(transactions) {
   if (!transactionItems.length) {
     dashboardHistoryList.innerHTML = '';
     dashboardHistoryEmpty.hidden = false;
+    dashboardHistoryEmpty.innerHTML = `
+      <div class="history__empty-icon"><i class="fa-solid fa-receipt"></i></div>
+      <p class="history__empty-title">No transactions yet</p>
+      <p class="history__empty-subtitle">Add your first income or expense above</p>
+    `;
     return;
   }
 

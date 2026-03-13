@@ -6,6 +6,11 @@ export function renderRemindersList(reminders = []) {
   if (!reminderItems.length) {
     remindersList.innerHTML = '';
     remindersEmpty.hidden = false;
+    remindersEmpty.innerHTML = `
+      <div class="history__empty-reminders-icon"><i class="fa-solid fa-bell"></i></div>
+      <p class="history__empty-reminders-title">No reminders yet</p>
+      <p class="history__empty-reminders-subtitle">Add a reminder to stay on track</p>
+    `;
     return;
   }
 
