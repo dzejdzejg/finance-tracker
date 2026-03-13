@@ -113,6 +113,43 @@ function handleNewsletterSubscribe() {
   newsletterInput.value = '';
 }
 
+/* === CHECK BUDGET WARNING === */
+function checkBudgetWarnings(transaction) {
+  if (transaction.type !== 'expense') return false;
+
+  let exceeded = false;
+
+  appState.budgets.forEach((budget) => {
+    if (budget.category.toLowerCase() !== transaction.category.toLowerCase()) return;
+
+    const now = new Date();
+    const spent = appState.transactions
+      .filter((t) => {
+        if (t.type !== 'expense') return false;
+        if (t.category.toLowerCase() !== budget.category.toLowerCase()) return false;
+
+        const tDate = new Date(t.date);
+
+        if (budget.period === 'month') return tDate.getMonth() === now.getMonth() && tDate.getFullYear() === now.getFullYear();
+
+        if (budget.period === 'week') {
+          const startOfWeek = new Date(now);
+          startOfWeek.setDate(now.getDate() - now.getDay());
+          startOfWeek.setHours(0, 0, 0, 0);
+          return tDate >= startOfWeek;
+        }
+
+        if (budget.period === 'year') return tDate.getFullYear() === now.getFullYear();
+        return false;
+      })
+      .reduce((sum, t) => sum + t.amount, 0);
+
+    if (spent >= budget.limit) exceeded = true;
+  });
+
+  return exceeded;
+}
+
 /* === INCOME FORM === */
 function handleIncomeSubmit(e) {
   e.preventDefault();
@@ -168,11 +205,15 @@ function handleExpensesSubmit(e) {
   };
 
   appState.transactions.push(transaction);
+  const exceeded = checkBudgetWarnings(transaction);
   saveAll();
   renderApp();
-
   form.reset();
-  showToast('Expense added!', 'success');
+  if (exceeded) {
+    showToast(`⚠️ Budget exceeded for ${transaction.category}!`, 'warning', 5000);
+  } else {
+    showToast('Expense added!', 'success');
+  }
 }
 
 /* === REMINDERS === */

@@ -36,6 +36,10 @@
   background: #4f46e5;
 }
 
+.toast--warning {
+  background: #ea580c;
+}
+
 @media (min-width: 768px) {
   .toast {
     left: auto;

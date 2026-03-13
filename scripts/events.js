@@ -97,7 +97,7 @@ export function showToast(message, type = 'info', duration = 3000) {
 
   toastEl.textContent = message;
 
-  toastEl.classList.remove('toast--success', 'toast--error', 'toast--info');
+  toastEl.classList.remove('toast--success', 'toast--error', 'toast--info', 'toast--warning');
   toastEl.classList.add(`toast--${type}`);
 
   toastEl.hidden = false;
