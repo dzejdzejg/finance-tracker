@@ -22,6 +22,12 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: center;
+  position: sticky;
+  top: 64px;
+  z-index: 10;
+  background: var(--bg-body);
+  padding: 10px 0;
+  margin: -10px 0;
 }
 
 .analytics__range,
@@ -117,6 +123,15 @@
 
   .analytics__card-title {
     font-size: 1.25rem;
+  }
+
+  .analytics__filters {
+    position: static;
+    top: auto;
+    z-index: auto;
+    background: transparent;
+    padding: 0;
+    margin: 0;
   }
 
   .analytics__empty {
