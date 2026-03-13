@@ -64,6 +64,8 @@ export const transactionsFilterCategory = document.querySelector('.transactions_
 export const transactionsFilterFrom = document.querySelector('.transactions__filter--from');
 export const transactionsFilterTo = document.querySelector('.transactions__filter--to');
 
+export const transactionsLoadMore = document.querySelector('.transactions__load-more');
+
 /* Reminders */
 export const remindersList = document.querySelector('.history__reminders');
 export const remindersEmpty = document.querySelector('.history__empty-reminders');

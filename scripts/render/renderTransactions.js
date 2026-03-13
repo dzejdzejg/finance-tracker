@@ -1,5 +1,14 @@
 import { CATEGORY_ICONS } from '../data/demoData.js';
-import { transactionsList, transactionsListEmpty, transactionsSearch, transactionsFilterType, transactionsFilterCategory, transactionsFilterFrom, transactionsFilterTo } from '../dom.js';
+import {
+  transactionsList,
+  transactionsListEmpty,
+  transactionsSearch,
+  transactionsFilterType,
+  transactionsFilterCategory,
+  transactionsFilterFrom,
+  transactionsFilterTo,
+  transactionsLoadMore,
+} from '../dom.js';
 
 function formatDateLabel(iso) {
   if (!iso) return 'No date';
@@ -15,6 +24,7 @@ function norm(v) {
 }
 
 let _transactions = [];
+let _visibleCount = 10;
 
 function getFilteredTransactions() {
   const typeSelected = norm(transactionsFilterType.value);
@@ -96,13 +106,16 @@ export function renderTransactionsList(transactions) {
       <div class="transactions__empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
       <p class="transactions__empty-title">No transactions found</p>
       <p class="transactions__empty-subtitle">Try adjusting your filters</p>
-    `
+    `;
     return;
   }
 
   transactionsListEmpty.hidden = true;
 
-  transactionsList.innerHTML = transactionItems
+  const visible = transactionItems.slice(0, _visibleCount);
+  const hasMore = transactionItems.length > _visibleCount;
+
+  transactionsList.innerHTML = visible
     .map((t, i) => {
       const isExpense = t.type === 'expense';
       const amountClass = isExpense ? 'transactions__amount--expense' : 'transactions__amount--income';
@@ -133,6 +146,17 @@ export function renderTransactionsList(transactions) {
     `;
     })
     .join('');
+
+  if (hasMore) {
+    transactionsLoadMore.textContent = `Load more (${transactionItems.length - _visibleCount} remaining)`;
+    transactionsLoadMore.hidden = false;
+    transactionsLoadMore.onclick = () => {
+      _visibleCount += 10;
+      renderTransactionsList();
+    };
+  } else {
+    transactionsLoadMore.hidden = true;
+  }
 }
 
 let _filtersInitialized = false;
@@ -180,7 +204,12 @@ export function renderFilterCategoriesByType(transactions) {
     <option value="entertainment">Entertainment</option>
     `;
 
+  let _suppressCategoryChange = false;
+
   function updateCategoryOptions() {
+    _visibleCount = 10;
+    _suppressCategoryChange = true;
+
     const type = transactionsFilterType.value;
 
     if (type === 'income') transactionsFilterCategory.innerHTML = incomeOptions;
@@ -188,19 +217,35 @@ export function renderFilterCategoriesByType(transactions) {
     else transactionsFilterCategory.innerHTML = allOptions;
 
     transactionsFilterCategory.value = 'all';
+    _suppressCategoryChange = false;
 
     renderTransactionsList();
   }
 
   updateCategoryOptions();
-  renderTransactionsList();
 
   if (_filtersInitialized) return;
   _filtersInitialized = true;
 
-  transactionsSearch.addEventListener('input', renderTransactionsList);
-  transactionsFilterType.addEventListener('change', updateCategoryOptions);
-  transactionsFilterCategory.addEventListener('change', renderTransactionsList);
-  transactionsFilterFrom.addEventListener('change', renderTransactionsList);
-  transactionsFilterTo.addEventListener('change', renderTransactionsList);
+  transactionsSearch.addEventListener('input', () => {
+    _visibleCount = 10;
+    renderTransactionsList();
+  });
+  transactionsFilterType.addEventListener('change', () => {
+    _visibleCount = 10;
+    updateCategoryOptions();
+  });
+  transactionsFilterCategory.addEventListener('change', () => {
+    if (_suppressCategoryChange) return;
+    _visibleCount = 10;
+    renderTransactionsList();
+  });
+  transactionsFilterFrom.addEventListener('change', () => {
+    _visibleCount = 10;
+    renderTransactionsList();
+  });
+  transactionsFilterTo.addEventListener('change', () => {
+    _visibleCount = 10;
+    renderTransactionsList();
+  });
 }
