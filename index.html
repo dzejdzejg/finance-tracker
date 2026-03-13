@@ -40,15 +40,20 @@
               <input type="checkbox" class="modal__setting-input" id="toggle-theme" />
               <label for="toggle-theme" class="modal__setting-switch"></label>
             </li>
-
             <li class="modal__list-item">
               <span class="modal__setting-label">Toggle animations</span>
               <input type="checkbox" class="modal__setting-input" id="toggle-animations" />
               <label for="toggle-animations" class="modal__setting-switch"></label>
             </li>
             <li class="modal__list-item">
-              <span class="modal__setting-label">Export JSON data</span>
-              <button class="modal__setting-download" type="button">
+              <span class="modal__setting-label">Export JSON (full data)</span>
+              <button class="modal__setting-download modal__setting-download-json" type="button">
+                <i class="modal__setting-download-icon fa-solid fa-arrow-up-from-bracket"></i>
+              </button>
+            </li>
+            <li class="modal__list-item">
+              <span class="modal__setting-label">Export CSV (transactions)</span>
+              <button class="modal__setting-download modal__setting-download-csv" type="button" id="">
                 <i class="modal__setting-download-icon fa-solid fa-arrow-up-from-bracket"></i>
               </button>
             </li>

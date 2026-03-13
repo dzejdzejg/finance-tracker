@@ -9,7 +9,8 @@ export const topbarBadge = document.querySelector('.topbar__badge');
 
 export const themeToggle = document.getElementById('toggle-theme');
 export const animationsToggle = document.getElementById('toggle-animations');
-export const exportBtn = document.querySelector('.modal__setting-download');
+export const exportJSONBtn = document.querySelector('.modal__setting-download-json');
+export const exportCSVBtn = document.querySelector('.modal__setting-download-csv');
 
 export const navLinks = document.querySelectorAll('[data-go]');
 export const views = document.querySelectorAll('.view');

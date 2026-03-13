@@ -1,4 +1,19 @@
-import { settingsBtn, modal, modalOverlay, closeBtn, navLinks, views, toastEl, themeBtn, themeToggle, animationsToggle, exportBtn, analyticsCategory, analyticsRange } from './dom.js';
+import {
+  settingsBtn,
+  modal,
+  modalOverlay,
+  closeBtn,
+  navLinks,
+  views,
+  toastEl,
+  themeBtn,
+  themeToggle,
+  animationsToggle,
+  exportJSONBtn,
+  exportCSVBtn,
+  analyticsCategory,
+  analyticsRange,
+} from './dom.js';
 import { getActiveData } from './render/renderApp.js';
 import { resizeCharts } from './chart.js';
 import { isDemo } from './state/state.js';
@@ -43,6 +58,28 @@ function syncSettingsUI() {
 /* === EXPORT JSON === */
 function downloadJson(filename, data) {
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  URL.revokeObjectURL(url);
+}
+
+/* === EXPORT CSV === */
+function downloadCsv(filename, transactions) {
+  const headers = 'id;type;amount;date;category;description';
+  const rows = transactions
+    .map((t) => {
+      return `${t.id};${t.type};${String(t.amount).replace('.', ',')};${t.date};${t.category};"${t.description ?? ''}"`;
+    })
+    .join('\n');
+
+  const blob = new Blob([`${headers}\n${rows}`], { type: 'text/csv' });
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement('a');
@@ -154,7 +191,7 @@ animationsToggle?.addEventListener('change', (e) => setAnimationsEnabled(e.targe
   });
 });
 
-exportBtn?.addEventListener('click', () => {
+exportJSONBtn?.addEventListener('click', () => {
   const data = getActiveData();
 
   const payload = {
@@ -170,4 +207,11 @@ exportBtn?.addEventListener('click', () => {
 
   downloadJson('finance-tracker-export.json', payload);
   showToast('Exported JSON successfully', 'success');
+});
+
+exportCSVBtn?.addEventListener('click', () => {
+  const data = getActiveData();
+
+  downloadCsv('finance-tracker-export.csv', data.transactions);
+  showToast('Exported CSV successfully', 'success');
 });
