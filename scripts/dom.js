@@ -70,6 +70,7 @@ export const transactionsLoadMore = document.querySelector('.transactions__load-
 /* Reminders */
 export const remindersList = document.querySelector('.history__reminders');
 export const remindersEmpty = document.querySelector('.history__empty-reminders');
+export const dueDateInput = document.querySelector('.history__input-date');
 
 /* Analytics view */
 export const analyticsRange = document.querySelector('.analytics__range');

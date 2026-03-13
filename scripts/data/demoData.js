@@ -1,3 +1,9 @@
+function daysFromNow(days) {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
 export const DEMO_DATA = {
   transactions: [
     // JAN 2026
@@ -45,11 +51,11 @@ export const DEMO_DATA = {
     { id: 'b5', category: 'Shopping', limit: 100, progress: 38, period: 'month' },
   ],
   reminders: [
-    { id: 'r1', name: 'Amazon Prime renews this month' },
-    { id: 'r2', name: 'Netflix due in 3 days' },
-    { id: 'r3', name: 'iCloud storage renewal next week' },
-    { id: 'r4', name: 'Credit card payment due 18th' },
-    { id: 'r5', name: 'Fuel budget check this week' },
+    { id: 'r1', name: 'Amazon Prime renews this month', dueDate: daysFromNow(7) },
+    { id: 'r2', name: 'Netflix due in 3 days', dueDate: daysFromNow(3) },
+    { id: 'r3', name: 'iCloud storage renewal next week', dueDate: daysFromNow(5) },
+    { id: 'r4', name: 'Credit card payment due 18th', dueDate: daysFromNow(-2) },
+    { id: 'r5', name: 'Fuel budget check this week', dueDate: daysFromNow(0) },
   ],
   settings: {
     theme: 'light',

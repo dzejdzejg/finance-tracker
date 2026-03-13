@@ -201,16 +201,20 @@
 }
 
 .history__reminder-form {
-  display: flex;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 8px;
 }
 
-.history__input {
+.history__input,
+.history__input-date {
   width: 100%;
   min-width: 0;
   padding: 10px 12px;
   flex: 1;
   font-size: 0.95rem;
+  font-family: inherit;
   border-radius: 10px;
   border: 1px solid #e5e7eb;
   outline: none;
@@ -224,7 +228,19 @@
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
 }
 
+.history__input {
+  grid-column: 1/-1;
+  grid-row: 1;
+}
+
+.history__input-date {
+  grid-column: 1/2;
+  grid-row: 2;
+}
+
 .history__add {
+  grid-column: 2/3;
+  grid-row: 2;
   padding: 12px 20px;
   border-radius: 10px;
   border: none;
@@ -259,7 +275,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
   padding: 5px 0;
 }
 
@@ -282,6 +298,22 @@
   white-space: nowrap;
   font-size: 1.1rem;
   font-weight: 700;
+}
+
+.history__reminder-due {
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.history__reminder-due--overdue {
+  color: #dc2626;
+}
+
+.history__reminder-due--today {
+  color: #6366f1;
 }
 
 .history__reminder-delete {
@@ -345,6 +377,26 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  .history__reminder-form {
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: none;
+  }
+
+  .history__input {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+
+  .history__input-date {
+    grid-column: 2/3;
+    grid-row: 1;
+  }
+
+  .history__add {
+    grid-column: 3/4;
+    grid-row: 1;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -368,6 +420,26 @@
   .history__empty,
   .history__empty-reminders {
     font-size: 1.1rem;
+  }
+
+  .history__reminder-form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .history__input {
+    grid-column: 1/-1;
+    grid-row: 1;
+  }
+
+  .history__input-date {
+    grid-column: 1/2;
+    grid-row: 2;
+  }
+
+  .history__add {
+    grid-column: 2/3;
+    grid-row: 2;
   }
 }
 

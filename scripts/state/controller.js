@@ -13,6 +13,7 @@ import {
   expenseDesc,
   remindersList,
   budgetsList,
+  dueDateInput,
 } from '../dom.js';
 import { appState, isDemo } from './state.js';
 import { showToast } from '../events.js';
@@ -236,9 +237,12 @@ function handleReminderAdd() {
     return;
   }
 
+  const dueDate = dueDateInput?.value || null;
+
   const reminder = {
     id: `r_${Date.now()}`,
     name: value,
+    dueDate,
   };
 
   appState.reminders.push(reminder);
@@ -246,6 +250,7 @@ function handleReminderAdd() {
   renderApp();
 
   reminderInput.value = '';
+  dueDateInput.value = '';
   showToast('Reminder added!', 'success');
 }
 
