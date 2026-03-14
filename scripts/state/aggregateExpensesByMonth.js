@@ -1,5 +1,5 @@
 export function aggregateExpensesByMonth(transactions) {
-  const year = 2026;
+  const year = new Date().getFullYear();
   const months = [];
 
   for (let monthIndex = 0; monthIndex <= 6; monthIndex++) {
