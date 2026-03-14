@@ -102,6 +102,7 @@ export function renderTransactionsList(transactions) {
   if (!transactionItems.length) {
     transactionsList.innerHTML = '';
     transactionsListEmpty.hidden = false;
+    transactionsLoadMore.hidden = true;
     transactionsListEmpty.innerHTML = `
       <div class="transactions__empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
       <p class="transactions__empty-title">No transactions found</p>
@@ -160,6 +161,7 @@ export function renderTransactionsList(transactions) {
 }
 
 let _filtersInitialized = false;
+let _suppressCategoryChange = false;
 
 export function renderFilterCategoriesByType(transactions) {
   if (Array.isArray(transactions)) _transactions = transactions;
@@ -203,8 +205,6 @@ export function renderFilterCategoriesByType(transactions) {
     <option value="bills">Bills</option>
     <option value="entertainment">Entertainment</option>
     `;
-
-  let _suppressCategoryChange = false;
 
   function updateCategoryOptions() {
     _visibleCount = 10;
