@@ -4,7 +4,7 @@ A personal finance tracking web application built with **Vanilla JavaScript** �
 
 ## 🌐 Live Demo
 
-_Coming soon_
+[Finance Tracker](https://dzejdzejg.github.io/finance-tracker/)
 
 ## 📸 Screenshots
 
