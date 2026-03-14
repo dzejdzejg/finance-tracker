@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finance Tracker - monitor your daily expanses!</title>
+    <title>Finance Tracker - monitor your daily expenses!</title>
     <link rel="icon" href="images/logo-32x-32.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet" />
@@ -53,7 +53,7 @@
             </li>
             <li class="modal__list-item">
               <span class="modal__setting-label">Export CSV (transactions)</span>
-              <button class="modal__setting-download modal__setting-download-csv" type="button" id="">
+              <button class="modal__setting-download modal__setting-download-csv" type="button">
                 <i class="modal__setting-download-icon fa-solid fa-arrow-up-from-bracket"></i>
               </button>
             </li>
@@ -61,7 +61,8 @@
         </div>
 
         <div class="modal__demo">
-          <p class="modal__demo-title">This website provides rigid data to show interface. If you want to start using Finance Tracker on your own click below</p>
+          <p class="modal__demo-title">This is a demo with sample data.</p>
+          <p class="modal__demo-subtitle">Click below to start fresh with your own data.</p>
           <button class="modal__demo-btn" type="button">Start with empty data</button>
         </div>
       </div>
@@ -235,7 +236,7 @@
                 <div class="history__main">
                   <div class="history__header">
                     <p class="history__title">History</p>
-                    <button class="history__sort" aria-label="Sort transactions"><i class="fa-solid fa-arrow-down"></i>Sort</button>
+                    <button class="history__sort" aria-label="Sort transactions by date"><i class="fa-solid fa-arrow-down"></i>Sort</button>
                     <p class="history__time">Date</p>
                     <p class="history__price">Amount</p>
                   </div>
@@ -252,7 +253,7 @@
                   <div class="history__reminder-form">
                     <input type="text" class="history__input" placeholder="Change demo mode in settings to add transactions" />
                     <input type="date" class="history__input-date" />
-                    <button class="history__add">Add</button>
+                    <button class="history__add" aria-label="Add reminder">Add</button>
                   </div>
                   <ul class="history__reminders"></ul>
 
@@ -277,8 +278,10 @@
 
                 <select class="transactions__filter transactions__filter--category"></select>
 
-                <input type="date" class="transactions__filter transactions__filter--from" />
-                <input type="date" class="transactions__filter transactions__filter--to" />
+                <label class="sr-only" for="filter-from">From date</label>
+                <input type="date" class="transactions__filter transactions__filter--from" id="filter-from" />
+                <label class="sr-only" for="filter-to">To date</label>
+                <input type="date" class="transactions__filter transactions__filter--to" id="filter-to" />
               </div>
 
               <ul class="transactions__list"></ul>
@@ -332,7 +335,10 @@
               <div class="budgets__header">
                 <h2 class="budgets__title">Budgets</h2>
 
-                <button class="budgets__add"><i class="fa-solid fa-plus"></i>Add Budget</button>
+                <button class="budgets__add" aria-label="Add new budget">
+                  <i class="fa-solid fa-plus"></i>
+                  Add Budget
+                </button>
               </div>
 
               <ul class="budgets__list"></ul>
@@ -422,7 +428,7 @@
       </div>
     </div>
 
-    <div class="toast" role="status" aria-live="polite" hidden></div>
+    <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
     <script src="scripts/index.js" type="module"></script>
