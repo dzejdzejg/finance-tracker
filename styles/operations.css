@@ -169,16 +169,16 @@
   grid-column: 1/-1;
 }
 
-.operations__form--income .operations__input-amount[name='amount'] {
+.operations__form--income .operations__input-amount {
   grid-column: 1 / 2;
 }
 
-.operations__form--income .operations__select[name='category'] {
+.operations__form--income .operations__select {
   grid-column: 2 / 3;
   width: 100%;
 }
 
-.operations__form--income .operations__input[name='date'] {
+.operations__form--income .operations__input-date {
   grid-column: 1 / 2;
 }
 
@@ -195,16 +195,16 @@
   grid-column: 1 / -1;
 }
 
-.operations__form--expenses .operations__input[name='amount'] {
+.operations__form--expenses .operations__input-amount {
   grid-column: 1 / 2;
 }
 
-.operations__form--expenses .operations__select[name='category'] {
+.operations__form--expenses .operations__select {
   grid-column: 2 / 3;
   width: 100%;
 }
 
-.operations__form--expenses .operations__input[name='date'] {
+.operations__form--expenses .operations__input-date {
   grid-column: 1 / 2;
 }
 

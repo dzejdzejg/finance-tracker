@@ -71,7 +71,6 @@
   background: var(--bg-analytics-card);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   display: grid;
-  grid-template-rows: auto 280px;
   grid-template-rows: auto 1fr;
   height: 340px;
   gap: 10px;

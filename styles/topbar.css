@@ -45,7 +45,7 @@
   height: 40px;
   display: grid;
   place-items: center;
-  background: var(--bg-icons-topbar);
+  background: var(--bg-topbar-icons);
   border: var(--border-topbar-icons);
   border-radius: 12px;
   font-size: 1.2rem;
