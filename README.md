@@ -10,13 +10,8 @@ A personal finance tracking web application built with **Vanilla JavaScript** â€
 
 ![Dashboard](images/screenshot-dashboard.png)
 ![Dashboard 2](images/screenshot-dashboard2.png)
-![Dashboard Dark](images/screenshot-dashboard-dark.png)
 ![Dashboard Mobile](images/screenshot-dashboard-mobile.png)
 ![Dashboard Mobile Dark](images/screenshot-dashboard-mobile-dark.png)
-![Transactions](images/screenshot-transactions.png)
-![Analytics](images/screenshot-analytics.png)
-![Budgets](images/screenshot-budgets.png)
-![Settings](images/screenshot-settings-mobile-dark.png)
 
 ## âœ¨ Features
 
