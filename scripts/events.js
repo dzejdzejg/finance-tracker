@@ -194,6 +194,11 @@ animationsToggle?.addEventListener('change', (e) => setAnimationsEnabled(e.targe
 exportJSONBtn?.addEventListener('click', () => {
   const data = getActiveData();
 
+  if (!data.transactions.length && !data.budgets.length && !data.reminders.length) {
+    showToast('No data to export.', 'error');
+    return;
+  }
+
   const payload = {
     exportedAt: new Date().toISOString(),
     transactions: data.transactions,
@@ -211,6 +216,11 @@ exportJSONBtn?.addEventListener('click', () => {
 
 exportCSVBtn?.addEventListener('click', () => {
   const data = getActiveData();
+
+  if (!data.transactions.length) {
+    showToast('No transactions to export.', 'error');
+    return;
+  }
 
   downloadCsv('finance-tracker-export.csv', data.transactions);
   showToast('Exported CSV successfully', 'success');

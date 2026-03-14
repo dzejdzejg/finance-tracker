@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   gap: 2px;
+  user-select: none;
 }
 
 .topbar__logo {

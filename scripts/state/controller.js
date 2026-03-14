@@ -69,7 +69,7 @@ export function switchToUserMode() {
   showToast('User mode activated! Add your first transaction.', 'success');
 }
 
-/* === SWITCH BACK TO DEMO (future) === */
+/* === SWITCH BACK TO DEMO === */
 export function switchToDemoMode() {
   const confirmed = window.confirm('This will clear all your data and show demo data. Are you sure to continue?');
   if (!confirmed) return;

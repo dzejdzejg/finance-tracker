@@ -126,7 +126,7 @@
 }
 
 .operations__input-date {
-  padding-right: 40px;
+  padding-right: 10px;
   cursor: pointer;
 }
 .operations__input-description:focus,
